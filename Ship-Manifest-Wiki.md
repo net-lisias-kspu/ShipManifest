@@ -11,8 +11,8 @@ I've now re-imagined it into Ship Manifest, using the same easy to navigate syst
 **Current Version:** 0.90.0_3.3.3, 19 Dec, 2014
   
 **Downloads:**  
-- [Kerbalstuff](https://kerbalstuff.com/mod/261/Ship%20Manifest) | 
-- [CurseForge](http://kerbal.curseforge.com/plugins/220357-ship-manifest) | 
+- [Kerbalstuff](https://kerbalstuff.com/mod/261/Ship%20Manifest) 
+- [CurseForge](http://kerbal.curseforge.com/plugins/220357-ship-manifest) 
 - [GitHub (all releases)](https://github.com/PapaJoesSoup/ShipManifest/releases)
 
 NOTE:   No dependencies exist with other mods, but Ship Manifest is compatible with the following mods: 
