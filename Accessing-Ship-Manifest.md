@@ -8,7 +8,7 @@ Ship Manifest allows access to the Settings window and the Roster window from th
 
 ![](http://i.imgur.com/AUNd8hp.png)
 
-When selected, icons will change color and the windows will appear.
+When selected, icons will change color and the windows will appear.  Clicking on the icon again will close the window.
 
 ![](http://i.imgur.com/3kiSTXi.png)
 
@@ -18,6 +18,6 @@ From Flight, a different icon will appear (third from left).
 
 ![](http://i.imgur.com/GoBn8eb.png)
 
-When clicked, it will change color as well and the Manifest Window will appear.  
+When clicked, it will change color as well and the Manifest Window will appear. Clicking on the icon again will close the window. 
 
 ![](http://i.imgur.com/qcDB4qp.png)
