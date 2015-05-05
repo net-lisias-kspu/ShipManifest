@@ -5,7 +5,7 @@ It has 2 windows that serve as the primary interface for operations.  The Manife
 Manifest Window.
 
 The manifest window is separated into 3 sections.  Resource selection, Resource Details, and buttons at the bottom for additional features.
-![Manifest and Transfer Windows](http://imgur.com/nbudphN)
+![Manifest and Transfer Windows]([Imgur](http://i.imgur.com/nbudphN.png))
 
 Section 1:  Resource selection.
 
