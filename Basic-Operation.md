@@ -6,7 +6,7 @@ Manifest Window.
 
 The manifest window is separated into 3 sections.  Resource selection, Resource Details, and buttons at the bottom for additional features.
 
-[img]http://i.imgur.com/nbudphN.png[/img]
+![]([img]http://i.imgur.com/nbudphN.png[/img])
 
 Section 1:  Resource selection.
 
