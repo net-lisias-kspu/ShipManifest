@@ -1,6 +1,6 @@
 Welcome to the Ship Manifest Wiki!
 
-Ship Manifest is a tool to move your ship's "things".
+Ship Manifest is a tool to manage your ship's "things".
 
 I started with Crew Manifest as a basis for this work, with great thanks to vXSovereignXv for creating Crew Manifest, and Sarbian for contributions to Crew Manifest.
 
@@ -8,8 +8,6 @@ I've now re-imagined it into Ship Manifest, using the same easy to navigate syst
 
 ***
 
-**Current Version:** 0.90.0_3.3.3, 19 Dec, 2014
-  
 **Downloads:**  
 - [Kerbalstuff](https://kerbalstuff.com/mod/261/Ship%20Manifest) 
 - [CurseForge](http://kerbal.curseforge.com/plugins/220357-ship-manifest) 
