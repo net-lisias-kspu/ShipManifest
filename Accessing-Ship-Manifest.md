@@ -7,3 +7,17 @@ Space Center Access.
 Ship Manifest allows access to the Settings window and the Roster window from the Space Center.  This allows you to make changes to the behavior of Ship Manifest, and to manage your Kerbals from outside a flight.
 
 ![](http://i.imgur.com/AUNd8hp.png)
+
+When selected, icons will change color and the windows will appear.
+
+![](http://i.imgur.com/3kiSTXi.png)
+
+Access in Flight.
+
+From Flight, a different icon will appear.  
+
+![](http://i.imgur.com/GoBn8eb.png)
+
+When clicked, it will change color as well and the Manifest Window will appear.  
+
+![](http://i.imgur.com/qcDB4qp.png)
