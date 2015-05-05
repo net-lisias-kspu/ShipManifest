@@ -2,11 +2,11 @@ Ship Manifest primarily moves Crew, Science and Resources around your vessel.
 
 It has 2 windows that serve as the primary interface for operations.  The Manifest Window, where resources can be selected, and the Transfer window where resources are moved around.
 
+![](http://i.imgur.com/nbudphN.png)
+
 Manifest Window.
 
 The manifest window is separated into 3 sections.  Resource selection, Resource Details, and buttons at the bottom for additional features.
-
-![](http://i.imgur.com/nbudphN.png)
 
 Section 1:  Resource selection.
 
