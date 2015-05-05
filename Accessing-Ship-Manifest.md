@@ -14,7 +14,7 @@ When selected, icons will change color and the windows will appear.
 
 Access in Flight.
 
-From Flight, a different icon will appear.  
+From Flight, a different icon will appear (third from left).  
 
 ![](http://i.imgur.com/GoBn8eb.png)
 
