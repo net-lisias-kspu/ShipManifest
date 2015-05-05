@@ -1,6 +1,6 @@
 Accessing Ship Manifest
 
-Ship Manifest supports both the Stock KSP toolbar and Blizzy's Toolbar, a popular mod used by many.  By default, Ship Manifest has the stock toolbar enabled so, icons will appear when in the Space Center, and when in flight.
+Ship Manifest supports both the Stock KSP toolbar and Blizzy's Toolbar, a popular mod used by many.  By default, Ship Manifest has the stock toolbar enabled so, icons will appear when in the Space Center, and when in flight.  Using Blizzy's toolbar is beyond the scope of this wiki, but switching to it will be discussed in the Settings Window features.
 
 Space Center Access.
 
