@@ -1,4 +1,6 @@
-Welcome to the Ship Manifest Wiki!
+[Home ](https://github.com/PapaJoesSoup/ShipManifest/wiki)|| [Next](https://github.com/PapaJoesSoup/ShipManifest/wiki/1.0---Accessing-Ship-Manifest)
+
+**Welcome to the Ship Manifest Wiki!**
 
 Ship Manifest is a tool to manage your ship's "things".
 
