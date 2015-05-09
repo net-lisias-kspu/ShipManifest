@@ -16,6 +16,8 @@ I've now re-imagined it into Ship Manifest, using the same easy to navigate syst
 
 **Download Locations:**   [Kerbalstuff](https://kerbalstuff.com/mod/261/Ship%20Manifest) || [CurseForge](http://kerbal.curseforge.com/plugins/220357-ship-manifest) || [GitHub (all releases)](https://github.com/PapaJoesSoup/ShipManifest/releases)  
 
+**Source code (and previous releases):**   http://github.com/PapaJoesSoup/ShipManifest
+
 **Mod Compatibility:**   
 Ship Manifest is Mod independent.  No other mods are required to use SM.  However, SM is compatible with and can take advantage of the following mods: 
 - [Toolbar](http://forum.kerbalspaceprogram.com/threads/60863), by blizzy78.  This plugin is an alternative to th stock toolbar.
@@ -24,8 +26,4 @@ Ship Manifest is Mod independent.  No other mods are required to use SM.  Howeve
 - [KSP-AVC](http://forum.kerbalspaceprogram.com/threads/79745).  This plugin checks your installed mod versions against the mod's latest version.  Let's you know when you need to update.
 - [CKAN](http://forum.kerbalspaceprogram.com/threads/100067).  The Comprehensive Kerbal Archive Network (CKAN) Package Manager (CKAN) manages nearly all your mods from one clean executable.  Performs installs, updates, and uninstalls of your mods automatically.
 
-***
-
 **License:** [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/).  Original license on Crew Manifest was do as you want.  I felt the original and contributing authors deserve due attribution, since this is a derivative work.
-
-**Source code (and previous releases):**   http://github.com/PapaJoesSoup/ShipManifest
