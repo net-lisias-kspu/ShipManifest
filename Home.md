@@ -13,7 +13,8 @@ I started with Crew Manifest as a basis for this work, with great thanks to vXSo
 I've now re-imagined it into Ship Manifest, using the same easy to navigate system that vXSovereignXv used.  It does what crew manifest does, only better, plus a whole lot more. Ship Manifest moves crew, Science and Resources around  from part to part within your ship or station.
 
 ***
-
+**General Info:**
+***
 **Download Locations:**   [Kerbalstuff](https://kerbalstuff.com/mod/261/Ship%20Manifest) || [CurseForge](http://kerbal.curseforge.com/plugins/220357-ship-manifest) || [GitHub (all releases)](https://github.com/PapaJoesSoup/ShipManifest/releases)  
 
 **Source code (and previous releases):**   http://github.com/PapaJoesSoup/ShipManifest
