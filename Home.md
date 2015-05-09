@@ -24,9 +24,8 @@ NOTE:   Ship Manifest is Mod independent.  No other mods are required to use SM.
 - [Connected Living Spaces (CLS)](http://forum.kerbalspaceprogram.com/threads/70161), by codepoet.  This plugin provides the player with graphical information on livable spaces in a ship.  It shows you where you could go internally on your ship.
 - [Module Manager](http://forum.kerbalspaceprogram.com/threads/55219).   This plugin allow you to extend the configurations on your parts.  Used by CLS.
 - [KSP-AVC](http://forum.kerbalspaceprogram.com/threads/79745).  This plugin checks your installed mod versions against the mod's latest version.  Let's you know when you need to update.
-- [CKAN](http://forum.kerbalspaceprogram.com/threads/100067).  The Comprehensive Kerbal Archive Network (CKAN) Package Manager (CKAN) manages nearly all your mods from one clean executable.  Performs installs, updates, and uninstalls of your mods automatically.  
+- [CKAN](http://forum.kerbalspaceprogram.com/threads/100067).  The Comprehensive Kerbal Archive Network (CKAN) Package Manager (CKAN) manages nearly all your mods from one clean executable.  Performs installs, updates, and uninstalls of your mods automatically.
 ***
-
 **License:** [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/).  Original license on Crew Manifest was do as you want.  I felt the original and contributing authors deserve due attribution, since this is a derivative work.
 
 **Source code (and previous releases):**   http://github.com/PapaJoesSoup/ShipManifest
