@@ -19,7 +19,7 @@ I've now re-imagined it into Ship Manifest, using the same easy to navigate syst
 - [CurseForge](http://kerbal.curseforge.com/plugins/220357-ship-manifest) 
 - [GitHub (all releases)](https://github.com/PapaJoesSoup/ShipManifest/releases)
 
-NOTE:   No dependencies exist with other mods, but Ship Manifest is compatible with the following mods: 
+NOTE:   Ship Manifest is Mod independent.  No other mods are required to use SM.  However, SM is compatible with and can take advantage of the following mods: 
 - [Toolbar](http://forum.kerbalspaceprogram.com/threads/60863), by blizzy78.  This plugin is an alternative to th stock toolbar.
 - [Connected Living Spaces (CLS)](http://forum.kerbalspaceprogram.com/threads/70161), by codepoet.  This plugin provides the player with graphical information on livable spaces in a ship.  It shows you where you could go internally on your ship.
 - [Module Manager](http://forum.kerbalspaceprogram.com/threads/55219).   This plugin allow you to extend the configurations on your parts.  Used by CLS.
