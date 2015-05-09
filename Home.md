@@ -14,10 +14,7 @@ I've now re-imagined it into Ship Manifest, using the same easy to navigate syst
 
 ***
 
-**Downloads:**  
-- [Kerbalstuff](https://kerbalstuff.com/mod/261/Ship%20Manifest) 
-- [CurseForge](http://kerbal.curseforge.com/plugins/220357-ship-manifest) 
-- [GitHub (all releases)](https://github.com/PapaJoesSoup/ShipManifest/releases)
+**Download Locations:**   [Kerbalstuff](https://kerbalstuff.com/mod/261/Ship%20Manifest) || [CurseForge](http://kerbal.curseforge.com/plugins/220357-ship-manifest) || [GitHub (all releases)](https://github.com/PapaJoesSoup/ShipManifest/releases)  
 
 NOTE:   Ship Manifest is Mod independent.  No other mods are required to use SM.  However, SM is compatible with and can take advantage of the following mods: 
 - [Toolbar](http://forum.kerbalspaceprogram.com/threads/60863), by blizzy78.  This plugin is an alternative to th stock toolbar.
