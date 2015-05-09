@@ -6,11 +6,7 @@
 
 **Welcome to the Ship Manifest Wiki!**
 
-Ship Manifest is a tool to manage your ship's "things".
-
-I started with Crew Manifest as a basis for this work, with great thanks to vXSovereignXv for creating Crew Manifest, and Sarbian for contributions to Crew Manifest.
-
-I've now re-imagined it into Ship Manifest, using the same easy to navigate system that vXSovereignXv used.  It does what crew manifest does, only better, plus a whole lot more. Ship Manifest moves crew, Science and Resources around  from part to part within your ship or station.
+Ship Manifest is a tool to manage your ship's "things".  Originally based on Crew Manifest, it does what crew manifest does, only better, plus a whole lot more. Ship Manifest moves crew, Science and Resources around from part to part within your vessel, as well as controlling Hatches, Solar Panels, Antennas & Lights.
 
 ***
 **General Info:**
