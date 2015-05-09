@@ -15,6 +15,8 @@ I also invite suggestions for things you would like to see.
 ***
 **General Info:**
 ***
+**Forum Thread:**  [Ship Manifest Thread](http://forum.kerbalspaceprogram.com/threads/62270)
+
 **Download Locations:**   [Kerbalstuff](https://kerbalstuff.com/mod/261/Ship%20Manifest) || [CurseForge](http://kerbal.curseforge.com/plugins/220357-ship-manifest) || [GitHub (all releases)](https://github.com/PapaJoesSoup/ShipManifest/releases)  
 
 **Source code (and previous releases):**   http://github.com/PapaJoesSoup/ShipManifest
