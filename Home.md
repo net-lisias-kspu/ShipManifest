@@ -23,7 +23,7 @@ I also invite suggestions for things you would like to see.
 
 **Mod Compatibility:**   
 Ship Manifest is Mod independent.  No other mods are required to use SM.  However, SM is compatible with and can take advantage of the following mods: 
-- [Toolbar](http://forum.kerbalspaceprogram.com/threads/60863), by blizzy78.  This plugin is an alternative to th stock toolbar.
+- [Toolbar](http://forum.kerbalspaceprogram.com/threads/60863), by blizzy78.  This plugin is an alternative for and can be used in addition to the stock toolbar.
 - [Connected Living Spaces (CLS)](http://forum.kerbalspaceprogram.com/threads/70161), by codepoet.  This plugin provides the player with graphical information on livable spaces in a ship.  It shows you where you could go internally on your ship.
 - [Module Manager](http://forum.kerbalspaceprogram.com/threads/55219).   This plugin allow you to extend the configurations on your parts.  Used by CLS.
 - [KSP-AVC](http://forum.kerbalspaceprogram.com/threads/79745).  This plugin checks your installed mod versions against the mod's latest version.  Let's you know when you need to update.
