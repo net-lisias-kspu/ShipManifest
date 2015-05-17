@@ -22,7 +22,7 @@ I also invite suggestions for things you would like to see.
 **Source code (and previous releases):**   http://github.com/PapaJoesSoup/ShipManifest
 
 **Mod Compatibility:**   
-Ship Manifest is Mod independent.  No other mods are required to use SM.  However, SM is compatible with and can take advantage of the following mods: 
+Ship Manifest is Mod independent.  No other mods are required to use SM.  SM is compatible with and will not conflict with all known mods.  However, SM has been codded specifically to support and can take advantage of the following mods: 
 - [Toolbar](http://forum.kerbalspaceprogram.com/threads/60863), by blizzy78.  This plugin is an alternative for and can be used in addition to the stock toolbar.
 - [Connected Living Spaces (CLS)](http://forum.kerbalspaceprogram.com/threads/70161), by codepoet.  This plugin provides the player with graphical information on livable spaces in a ship.  It shows you where you could go internally on your ship.
 - [Remote Tech 2](http://forum.kerbalspaceprogram.com/threads/83305).  RemoteTech is a modification which overhauls the unmanned space program. It does this by requiring unmanned vessels have a connection to Kerbal Space Center (KSC) to be able to be controlled. This adds a new layer of difficulty that compensates for the lack of live crew members.
