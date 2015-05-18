@@ -8,7 +8,7 @@
 
 Ship Manifest is a tool to manage your ship's "things".  Originally based on Crew Manifest, Ship Manifest moves crew, Science and Resources around from part to part within your vessel, as well as controlling Hatches, Solar Panels, Antennas & Lights.
 
-Ship Manifest has a LOT of flexibility and a lot of Options.  So much is available that is NOT seen in a default installation (Realism mode set ON by default) that you may be missing a lot of what SM has to offer.   Please go through this wiki to see what is available.   You will be surprised at what this tool can do for your gameplay.  I believe in choice, so you can configure SM to be pretty much exactly what you want.  You want a "realistic" experience?  Check.   You want to be a god and chafe at realism mode restrictions?  Check.
+Ship Manifest has a LOT of flexibility and a lot of options.  So much is available that is NOT seen in a default installation (Realism mode set ON by default) that you may be missing a lot of what SM has to offer.   Please go through this wiki to see what is available.   You will be surprised at what this tool can do for your gameplay.  I believe in choice, so you can configure SM to be pretty much exactly what you want.  You want a "realistic" experience?  Check.   You want to be a god and chafe at realism mode restrictions?  Check.
 
 I also invite suggestions for things you would like to see.
 
