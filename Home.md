@@ -2,6 +2,7 @@
 
 [Section 1 Ship Manifest Features](https://github.com/PapaJoesSoup/ShipManifest/wiki/1.0---Ship-Manifest-Features)  
 [Section 2 Basic Operations](https://github.com/PapaJoesSoup/ShipManifest/wiki/2.0---Basic-Operation)
+[Section 3 Configuration File](https://github.com/PapaJoesSoup/ShipManifest/wiki/3.0-Configuration-File)
 ***  
 
 **Welcome to the Ship Manifest Wiki!**
