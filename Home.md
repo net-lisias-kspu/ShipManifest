@@ -1,12 +1,11 @@
 [Home ](https://github.com/PapaJoesSoup/ShipManifest/wiki)|| [Next](https://github.com/PapaJoesSoup/ShipManifest/wiki/1.0---Ship-Manifest-Features)
 
-[Section 1 Ship Manifest Features](https://github.com/PapaJoesSoup/ShipManifest/wiki/1.0---Ship-Manifest-Features)  
+[Section 1 Accessing Ship Manifest](https://github.com/PapaJoesSoup/ShipManifest/wiki/1.0-Accessing-Ship-Manifest)  
 [Section 2 Basic Operations](https://github.com/PapaJoesSoup/ShipManifest/wiki/2.0---Basic-Operation)  
 [Section 3 Configuration File](https://github.com/PapaJoesSoup/ShipManifest/wiki/3.0-Configuration-File)
 ***  
 
-**Welcome to the Ship Manifest Wiki!**
-
+**Introduction**  
 Ship Manifest is a tool to manage your ship's "things".  Originally based on Crew Manifest, Ship Manifest moves crew, Science and Resources around from part to part within your vessel, as well as controlling Hatches, Solar Panels, Antennas & Lights.
 
 Ship Manifest has a LOT of flexibility and a lot of options.  So much is available that is NOT seen in a default installation (Realism mode set ON by default) that you may be missing a lot of what SM has to offer.   Please go through this wiki to see what is available.   You will be surprised at what this tool can do for your gameplay.  I believe in choice, so you can configure SM to be pretty much exactly what you want.  You want a "realistic" experience?  Check.   You want to be a god and chafe at realism mode restrictions?  Check.
