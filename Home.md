@@ -12,6 +12,7 @@ Ship Manifest has a LOT of flexibility and a lot of options.  So much is availab
 
 I also invite suggestions for things you would like to see.
 
+
 **Ship Manifest Features**  
 Ship manifest has many features to assist in your game play.
 
