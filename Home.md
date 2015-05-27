@@ -12,6 +12,21 @@ Ship Manifest has a LOT of flexibility and a lot of options.  So much is availab
 
 I also invite suggestions for things you would like to see.
 
+**Ship Manifest Features**
+
+Ship manifest has many features to assist in your game play.
+
+- Can be accessed from the Space Center or from Flight
+- Can Manage all of your kerbals in your roster for a particular game save.
+- Can Add or remove kerbals from your vessel in pre-flight or flight.
+- Can move Crew around your vessel while in fight.
+- Can Move Science around your vessel while in Flight.
+- Can move various resources around your vessel.
+- Can fill/dump resources while in pre-flight or flight
+- Can control parts like Hatches, Solar Panels, Antennas and Lights.
+- Can be tailored to use only some or all of the offered features.
+- Can be customized for a realistic or god like experience
+
 ***
 **General Info:**
 ***
@@ -31,18 +46,3 @@ Ship Manifest is Mod independent.  No other mods are required.  SM is compatible
 - [CKAN](http://forum.kerbalspaceprogram.com/threads/100067).  The Comprehensive Kerbal Archive Network (CKAN) Package Manager (CKAN) manages nearly all your mods from one clean executable.  Performs installs, updates, and uninstalls of your mods automatically.
 
 **License:** [CC BY-NC-SA 4.0](http://creativecommons.org/licenses/by-nc-sa/4.0/).  Original license on Crew Manifest was do as you want.  I felt the original and contributing authors deserve due attribution, since this is a derivative work.
-
-**Ship Manifest Features**
-
-Ship manifest has many features to assist in your game play.
-
-- Can be accessed from the Space Center or from Flight
-- Can Manage all of your kerbals in your roster for a particular game save.
-- Can Add or remove kerbals from your vessel in pre-flight or flight.
-- Can move Crew around your vessel while in fight.
-- Can Move Science around your vessel while in Flight.
-- Can move various resources around your vessel.
-- Can fill/dump resources while in pre-flight or flight
-- Can control parts like Hatches, Solar Panels, Antennas and Lights.
-- Can be tailored to use only some or all of the offered features.
-- Can be customized for a realistic or god like experience
