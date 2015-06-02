@@ -43,6 +43,8 @@ Ship Manifest is Mod independent.  No other mods are required.  SM is compatible
 - [Connected Living Spaces (CLS)](http://forum.kerbalspaceprogram.com/threads/70161), by codepoet.  This plugin provides the player with graphical information on livable spaces in a ship.  It shows you where you could go internally on your ship.
 - [Remote Tech 2](http://forum.kerbalspaceprogram.com/threads/83305).  RemoteTech is a modification which overhauls the unmanned space program. It does this by requiring unmanned vessels have a connection to Kerbal Space Center (KSC) to be able to be controlled. This adds a new layer of difficulty that compensates for the lack of live crew members.
 - [Module Manager](http://forum.kerbalspaceprogram.com/threads/55219).   This plugin allow you to extend the configurations on your parts.  Used by CLS.
+- [Kerbal Inventory System](http://forum.kerbalspaceprogram.com/threads/113111).  This plugin introduces new gameplay mechanics by adding a brand new inventory system and EVA usable items such as tools..
+- [DeepFreeze](http://forum.kerbalspaceprogram.com/threads/92806).   This plugin Cryogenically freezes your kerbonauts for long term storage.
 - [KSP-AVC](http://forum.kerbalspaceprogram.com/threads/79745).  This plugin checks your installed mod versions against the mod's latest version.  Let's you know when you need to update.
 - [CKAN](http://forum.kerbalspaceprogram.com/threads/100067).  The Comprehensive Kerbal Archive Network (CKAN) Package Manager (CKAN) manages nearly all your mods from one clean executable.  Performs installs, updates, and uninstalls of your mods automatically.
 
