@@ -4,20 +4,37 @@
     <Import Project="user_settings.props" Condition="Exists('user_settings.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros">
-    <KSPDIR Condition="'$(KSPDIR)' == ''">S:\KSP\KSP_Dev\</KSPDIR>
+    <KSPDIR Condition="'$(KSPDIR)' == ''">S:\KSP\KSP_Dev</KSPDIR>
+    <KSPDATADIR Condition="'$(OS)' == 'Windows_NT'">$(KSPDIR)\KSP_x64_Data</KSPDATADIR>
+    <KSPDATADIR Condition="'$(OS)' != 'Windows_NT'">$(KSPDIR)\KSP_Data</KSPDATADIR>
     <MODDIR>$(MSBuildThisFileDirectory)\..</MODDIR>
     <MODNAME>ShipManifest</MODNAME>
     <DISTDIR>$(MODDIR)\Distribution</DISTDIR>
   </PropertyGroup>
   <PropertyGroup />
-  <ItemDefinitionGroup />
+  <ItemDefinitionGroup>
+    <Reference>
+      <Private>False</Private>
+    </Reference>
+  </ItemDefinitionGroup>
   <ItemGroup>
-      <Reference Include="$(KSPDIR)\KSP_x64_Data\Managed\Assembly*.dll">
+    <Reference Include="$(KSPDATADIR)\Managed\Assembly-CSharp.dll">
       <Private>False</Private>
     </Reference>
-    <Reference Include="$(KSPDIR)\KSP_x64_Data\Managed\UnityEngine*.dll">
+    <Reference Include="$(KSPDATADIR)\Managed\Assembly-CSharp-firstpass.dll">
       <Private>False</Private>
     </Reference>
+    <Reference Include="$(KSPDATADIR)\Managed\UnityEngine.dll">
+      <Private>False</Private>
+    </Reference>
+  <!--
+    <Reference Include="$(KSPDATADIR)Managed\Assembly*.dll">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="$(KSPDATADIR)Managed\UnityEngine*.dll">
+      <Private>False</Private>
+    </Reference>
+  -->
   </ItemGroup>
   <ItemGroup>
     <BuildMacro Include="KSPDIR">
