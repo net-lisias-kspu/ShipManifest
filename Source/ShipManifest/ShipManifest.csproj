@@ -42,6 +42,42 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\KSP_Dev\KSP_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\KSP_1.10.0\KSP_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\KSP_Dev\KSP_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\KSP_Dev\KSP_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\..\KSP_Dev\KSP_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\KSP_Dev\KSP_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\KSP_Dev\KSP_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\KSP_Dev\KSP_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\KSP_Dev\KSP_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIClients\DFWrapper.cs" />
@@ -93,7 +129,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <PostBuildEvent>if "$(ConfigurationName)"=="Release" (
+    <PostBuildEvent Condition="'$(OS)'=='Windows_NT'">if "$(ConfigurationName)"=="Release" (
   echo Copying $(MODNAME) files to distribution folder...
   copy /Y "$(TargetPath)" "$(DISTDIR)\GameData\$(MODNAME)\Plugins\"
 )</PostBuildEvent>

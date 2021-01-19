@@ -40,6 +40,10 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml" />
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\KSP_Dev\KSP_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface.cs" />
@@ -48,7 +52,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
-    <PostBuildEvent>if "$(ConfigurationName)"=="Release" (
+    <PostBuildEvent Condition="'$(OS)'=='Windows_NT'">if "$(ConfigurationName)"=="Release" (
   echo Copying $(SolutionName) files to distribution folder...
   copy /Y "$(TargetPath)" "$(DISTDIR)\GameData\$(SolutionName)\Plugins\"
 )</PostBuildEvent>
