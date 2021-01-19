@@ -50,13 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
-    <PostBuildEvent Condition="'$(OS)'=='Windows_NT'">if "$(ConfigurationName)"=="Release" (
-  echo Copying $(SolutionName) files to distribution folder...
-  copy /Y "$(TargetPath)" "$(DISTDIR)\GameData\$(SolutionName)\Plugins\"
-)</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -64,4 +57,10 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="CopyToReleaseDir" AfterTargets="Build" Condition="'$(ConfigurationName)'=='Release'">
+    <ItemGroup>
+        <DataFiles Include="$(TargetPath)" />
+    </ItemGroup>
+    <Copy SourceFiles="@(DataFiles)" DestinationFolder="$(DISTDIR)\GameData\$(SolutionName)\Plugins\" SkipUnchangedFiles="true" />
+  </Target>
 </Project>
