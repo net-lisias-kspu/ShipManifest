@@ -1,5 +1,10 @@
 # ShipManifest :: Change Log
 
+* 2015-0407: 4.1.4.3 (PapaJoesSoup) for KSP 0.90.0
+	+ Version 4.1.4.3 - Release 06 Apr, 2015 - RT bug, External crew bug and control display fixes.
+		- Fixed: When using RemoteTech, not all RemoteTech antennas would display in Control window list.
+		- Fixed: Sometimes when displaying part info in Antennas, Solar Panels, hatches and Lights, a null exception would occur and "unknown" would be displayed in part parent info.
+		- Fixed: Crew in external seats were not properly handled in SM. Attempts to transfer will generate unhanded errors, and could possibly corrupt the game save, requiring the vessel to be deleted.  Removed Crew members in external seats from xfer list.
 * 2015-0329: 4.1.4.2 (PapaJoesSoup) for KSP 0.90.0
 	+ Version 4.1.4.2 - Release 29 Mar, 2015 - Control Window Tweaks Edition.
 		- New: Added part name to description for Antennas, Solar Panels, and Lights in Control Window.
