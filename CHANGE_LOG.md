@@ -1,5 +1,8 @@
 # ShipManifest :: Change Log
 
+* 2015-0709: 4.4.1.1 (PapaJoesSoup) for KSP 0.90.
+	+ Version 4.4.1.1 - Release 09 July, 2015 - Tooltips & Science Xfer Improvements.
+		- Fixed:  Correct a display error with science tooltip when an experiment result key is not found.  Now displays the default key's data.
 * 2015-0706: 4.4.1.0 (PapaJoesSoup) for KSP 0.90.
 	+ Version 4.4.1.0 - Release 05 July, 2015 - Tooltips & Science Xfer Improvements.
 		- New:  Refactored and expanded Tooltips.  Changed background, positioning, anchor points, font styles & colors for better readability.  Added more tooltips to various windows and tabs.
