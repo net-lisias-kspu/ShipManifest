@@ -1,5 +1,8 @@
 # ShipManifest :: Change Log
 
+* 2016-0708: 5.1.1.1 (PapaJoesSoup) for KSP 1.1.3
+	+ Version 5.1.1.1 - Release 08 Jul, 2016 - KSP 1.1.3 Compatibility Edition.
+		- New:  Implemented Disabling of Stock Crew Transfer system using Realism setting "Enable Stock Crew Transfer". When set to off, Stock Crew transfer buttons no longer appear.
 * 2016-0707: 5.1.1.0 (PapaJoesSoup) for KSP 1.1.3
 	+ ersion 5.1.1.0 - Release 07 Jul, 2016 - KSP 1.1.3 Compatibility Edition.
 		- Fixed:  NulRef errror with DeepFreeze installed and a frozen kerbal in RosterListViewer.
