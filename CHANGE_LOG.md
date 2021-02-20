@@ -1,5 +1,12 @@
 # ShipManifest :: Change Log
 
+* 2016-0315: 5.0.1.0 (PapaJoesSoup) for KSP 1.0.5
+	+ Version 5.0.1.0 - Release 14 Mar, 2016 - Bug fixes and APIs
+		- New:  Removed DFInterface.dll.  Added Reflection based Wrapper class source code for integration with DeepFreeze.
+		- New:  Removed SMInterface.dll.   Replaced by SMWrapper, which is also a reflection based wrapper for developer use with SM.
+		- Fixed:  Crew movement issues with DeepFreeze.
+		- Fixed:  Roster Window does not display correctly with DeepFreeze installed.
+		- Fixed:  EVA kerbals causing a null ref bug and duplicating kerbals.  This fix requires the latest version of Deepfreeze (V0.20.4.0) if you use it with SM.
 * 2016-0307: 5.0.0.1 (PapaJoesSoup) for KSP 1.0.5
 	+ Version 5.0.0.1 - Release 07 Mar, 2016 - Massive Refactoring Edition. NEW! Realism Mode - Multiple simultaneous transfers & dumps.
 		- New:  Added Volume controls in the sound tab of the Settings Window.   They had long been in the settings file, but not in the UI. I don't know why...
