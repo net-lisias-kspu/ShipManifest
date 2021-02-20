@@ -1,5 +1,7 @@
 # ShipManifest :: Change Log
 
+* 2020-0304: 6.0.0.2 (Micha) for KSP 1.9.1
+	+ Release of SM for KSP1.9.x
 * 2019-1123: 6.0.0.1_mw (Micha) for KSP 1.8.x
 	+ Recompiled for KSP1.8.x.
 * 2018-0318: 5.2.1.0 (PapaJoesSoup) for KSP 1.4.5
