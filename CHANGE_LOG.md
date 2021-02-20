@@ -1,5 +1,9 @@
 # ShipManifest :: Change Log
 
+* 2015-0506: 4.2.0.2 (PapaJoesSoup) for KSP 0.90.0
+	+ Version 4.2.0.2 - Release 05 May, 2015 - Transfers Expansion Edtion bug fixes.
+		- Fixed:  Science Transfer broken.  Bug introduced with version 4.2.0.0
+	+ Added Wiki to Github
 * 2015-0505: 4.2.0.1 (PapaJoesSoup) for KSP 0.90.0
 	+ Version 4.2.0.1 - Release 04 May, 2015 - Transfers Expansion Edtion bug fixes.
 		- Fixed:  When realism is off and override Stock crew Xfers is on, transfers cause a flickering portrait and do not complete.
