@@ -1,5 +1,9 @@
 # ShipManifest :: Change Log
 
+* 2017-0602: 5.1.4.3 (PapaJoesSoup) for KSP 1.3.0
+	+ Version 5.1.4.3 - Release 01 Jun 2017 - KSP 1.3 Compatibility Edition
+		- Fixed: Error in scrollviewer dimensions refactor.  reversed height and width.
+		- Fixed: Minor boundary detection error with mouseover highlighting.  The visible button list window boundaries were not completely respected.
 * 2017-0601: 5.1.4.2 (PapaJoesSoup) for KSP 1.3.0
 	+ Version 5.1.4.2 - Release 31 May 2017 - KSP 1.3 Compatibility Edition
 		- Fixed: compatibility with latest DeepFreeze.  Freeze action from Roster Window was failing.
