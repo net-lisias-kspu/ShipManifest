@@ -1,5 +1,13 @@
 # ShipManifest :: Change Log
 
+* 2014-0928: 0.24.2_3.3.2 (PapaJoesSoup) for KSP 0.24.0.
+	+ Version 0.24.2_3.3.2 - 28 Sep, 2014 - 0.24.2 and bug fixes edition
+		- New:  Blizzy Toolbar is now optional.  If you install it, you can enable it.  Off by default.
+		- New:  Removed auto enable of CLS.  CLS is now Off by default.  If CLS is installed, can be turned on in Settings.
+		- New:  Bug fixes to correct crashing and errors on startup.
+		- New:  Added Close button to Debug window.
+		- New:  Revised Science transfer code to ensure compatibility with DMagic Parts (i hope).
+		- Other Undocumented changes.  I was in the middle of other updates (bug fixes) when 0.24.2 hit.
 * 2014-0718: 0.24.0.3.3.1 (PapaJoesSoup) for KSP 0.24.0.
 	+ Version 0.24.0.3.3.1a - 28 Aug, 2014
 		- Removed Toolbar from Distribution. No code changes.
