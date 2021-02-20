@@ -1,5 +1,14 @@
 # ShipManifest :: Change Log
 
+* 2015-0410: 4.1.4.4 (PapaJoesSoup) for KSP 0.90.0
+	+ Version 4.1.4.4 - Release 10 Apr, 2015 - Bug fixes.
+		- Fixed:  Crew transfers fail when Realism Mode is Off.
+		- Fixed:  SM windows do not hide when the F2 key is toggled to hide UI.
+		- Fixed:  SM window positions are not automatically saved between scenes.
+		- Fixed:  Roster windows position incorrectly saving to settings window position.
+		- Changed:  Altered Window Reposition behavior to be more intuitive.
+			- Was:  Reset window to 0.0 when position exceeds the edge of the screen.
+			- Now:  reposition window to edge of screen when position exceeds the edge of screen.
 * 2015-0407: 4.1.4.3 (PapaJoesSoup) for KSP 0.90.0
 	+ Version 4.1.4.3 - Release 06 Apr, 2015 - RT bug, External crew bug and control display fixes.
 		- Fixed: When using RemoteTech, not all RemoteTech antennas would display in Control window list.
