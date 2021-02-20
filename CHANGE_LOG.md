@@ -1,5 +1,9 @@
 # ShipManifest :: Change Log
 
+* 2014-0227: 0.23.3.1.5 (PapaJoesSoup) for KSP 0.23
+	+ Real time Crew transfers with sound.
+	+ Resource transfer amount entry field.
+	+ sounds and configs.
 * 2014-0128: 0.23.3.0 (PapaJoesSoup) for KSP 0.23
 	+ Add crew transfers.  Bug fixes and enhancements.
 * 2014-0109: 0.23.2.0 (PapaJoesSoup) for KSP 0.23
