@@ -1,5 +1,13 @@
 # ShipManifest :: Change Log
 
+* 2015-0214: 0.90.0_4.0.2 (PapaJoesSoup) for KSP 0.90.0
+	+ Version 0.90.0_4.0.2 - Release 13 Feb, 2015 - Bugs, Mod Refactoring and More Edition.
+		- New:  Resource Transfer display and setup system refactored.  Added ability to stop a transfer in progress.
+		- New:  Exposed Resource Transfer Flow Rate Slider min and max values. You can now change the min and max flow rate.
+		- New:  Added a maximum run time in seconds. SM will use the lesser duration of Xfer amount / flow rate or max time.
+		- New:  Added tool tips to  controls in the options section of the Settings Window.
+		- Fixed:  When moving or transferring a kerbal, closing the transfer window, Manifest window or closing the manifest window from any toolbar while the action is in progress causes an error.
+		- Fixed:  When closing the Transfer Window, internally resetting the selected resource causes an error.
 * 2015-0115: 0.90.0_3.3.4 (PapaJoesSoup) for KSP 0.90.0
 	+ Version 0.90.0_3.3.4 - 15 Jan, 2015 - Bugs, Mod Tweaks and More Edition.
 		- New:  Added a Limited Highlighting switch.  When on, highlights only source and target parts.
