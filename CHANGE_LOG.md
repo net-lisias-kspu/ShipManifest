@@ -1,5 +1,15 @@
 # ShipManifest :: Change Log
 
+* 2016-1115: 5.1.3.0 (PapaJoesSoup) for KSP 1.2.1
+	+ Version 5.1.3.0 - Release 12 Nov 2016 - KSP 1.2.1 Compatibility Edition
+		- New:  Refactored mod for KSP 1.2.x Compatibility
+		- New:  Added support for new events in Crew Transfer, allowing improved performance and customization of Full Part messages during Stock Crew Transfers.
+		- New:  Corrected supported versions in the Developer Notes and Installation Notes. (Git Issue #30)
+		- New:  Added support for switching "Allowing Unrestricted Crew Transfers" in CLS so that SM and CLS do not compete for control over Stock Transfers.
+		- New:  Added a setting in the Settings window to enable/disable overriding CLS CrewTransfer setting.
+		- Removed:  Mods Tab in Control Window.  Installed mods is now availabe from the KSP Debug window (Alt F12)
+		- Fixed: SM windows were not always closing on scene changes.
+		- Fixed: Resource Dumps from the Manifest window would cause any previously clicked dump to initiate  when another was clicked.
 * 2016-0822: 5.1.2.2 (PapaJoesSoup) for KSP 1.1.3
 	+ Version 5.1.2.2 - Release 21 Aug, 2016 - KSP 1.1.3 Optimization Edition.
 		- New:  Tweak of tooltips to make them more readable.  changed style and added border.
