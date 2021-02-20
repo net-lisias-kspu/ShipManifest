@@ -1,5 +1,18 @@
 # ShipManifest :: Change Log
 
+* 2017-0117: 5.1.3.2 (PapaJoesSoup) for KSP 1.2.2
+	+ Version 5.1.3.2 - Release 16 Jan 2017 - KSP 1.2.2 Compatibility Edition
+		- New:  Refactored for KSP 1.2.2
+		- Fixed:  Enumeration error when opening or closing more than one hatch at the same time.
+		- Fixed:  Respawn Kerbal fails. Github issue # 35.
+		- Fixed:  Opening/closing hatches via a part's tweakable doesn't properly update the transfer windows xfer/eva buttons when CLS spaces change.
+		- Fixed:  Fill buttons do not have tooltips.  Can be confusing as to their behavior.
+		- Fixed:  Part level fill buttons do not behave as expected by users. Should not be available in flight with realism on.
+		- Fixed:  Roster and Settings Icons sometimes appear in flight scene.  Should only be in Space Center Scene.
+		- Fixed:  Highlighting is disabled temporarily when hatches are opened and closed.
+		- Fixed:  Resource selection in the Manifest window is behaving erratically. Resources are disappearing in the display when multiple selections are made.
+		- Fixed:  Vessel to vessel transfers are failing with an NRE in ShipManifest.SMVessel.UpdateDockedVessels. http://forum.kerbalspaceprogram.com/index.php?/topic/56643-121-ship-manifest-crew-science-resources-v-5131-15-nov-16/&do=findComment&comment=2881063
+		- Fixed:  Sometimes crew transfers do not work.
 * 2016-1116: 5.1.3.1 (PapaJoesSoup) for KSP 1.2.1
 	+ Version 5.1.3.1 - Release 15 Nov 2016 - KSP 1.2.1 Compatibility Edition
 		- Fixed:  Create Kerbal fails.
