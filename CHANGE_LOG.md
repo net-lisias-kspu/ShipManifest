@@ -1,5 +1,7 @@
 # ShipManifest :: Change Log
 
+* 2019-1123: 6.0.0.1_mw (Micha) for KSP 1.8.x
+	+ Recompiled for KSP1.8.x.
 * 2018-0318: 5.2.1.0 (PapaJoesSoup) for KSP 1.4.5
 	+ Version 5.2.1.0 - Release 17 Mar 2018 - KSP 1.4.1 Edition
 		- New: Recompiled for KSP 1.4.x compatibility.
