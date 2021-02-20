@@ -1,5 +1,10 @@
 # ShipManifest :: Change Log
 
+* 2016-1116: 5.1.3.1 (PapaJoesSoup) for KSP 1.2.1
+	+ Version 5.1.3.1 - Release 15 Nov 2016 - KSP 1.2.1 Compatibility Edition
+		- Fixed:  Create Kerbal fails.
+		- Fixed:  Rename Kerbal changes do not show up after change.
+		- Fixed:  Removed Mod Button from Settings Window.  Was there in error.
 * 2016-1115: 5.1.3.0 (PapaJoesSoup) for KSP 1.2.1
 	+ Version 5.1.3.0 - Release 12 Nov 2016 - KSP 1.2.1 Compatibility Edition
 		- New:  Refactored mod for KSP 1.2.x Compatibility
