@@ -1,5 +1,9 @@
 # ShipManifest :: Change Log
 
+* 2016-0725: 5.1.2.1 (PapaJoesSoup) for KSP 1.1.3
+	+ Version 5.1.2.1 - Release 24 Jul, 2016 - KSP 1.1.3 Optimization Edition.
+		- Fixed: Enumeration error on kerbal action in Roster Window.  Moved action to outside enumerator, so change to list does not throw error.
+		- Fixed: Button widths were incorrect in Manifes and Transfer window part selectors under certain realism and configuration settings.
 * 2016-0721: 5.1.2.0 (PapaJoesSoup) for KSP 1.1.3
 	+ Version 5.1.2.0 - Release 21 Jul, 2016 - KSP 1.1.3 Optimization Edition.
 		- New:  Added option to enable Crew Fills and Dumps Vessel Wideduring Pre-Flight .  Off by default.  Works the same as Resource fill and dump.
