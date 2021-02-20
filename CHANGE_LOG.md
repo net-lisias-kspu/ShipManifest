@@ -1,5 +1,9 @@
 # ShipManifest :: Change Log
 
+* 2015-0323: 0.90.0_4.1.4.1 (PapaJoesSoup) for KSP 0.90.0
+	+ Version 0.90.0_4.1.4.1 - Release 22 Mar, 2015 - RT Antenna Integration Edition.
+		- New:  Added Remote Tech (RT) Antenna control support.
+		- Fixed:  Undeployable Solar panels incorrectly show up in Solar panel list and generate an unmanaged error when Extended or Retracted.
 * 2015-0214: 0.90.0_4.0.2 (PapaJoesSoup) for KSP 0.90.0
 	+ Version 0.90.0_4.0.2 - Release 13 Feb, 2015 - Bugs, Mod Refactoring and More Edition.
 		- New:  Resource Transfer display and setup system refactored.  Added ability to stop a transfer in progress.
