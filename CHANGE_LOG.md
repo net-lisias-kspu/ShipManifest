@@ -1,5 +1,9 @@
 # ShipManifest :: Change Log
 
+* 2015-0329: 4.1.4.2 (PapaJoesSoup) for KSP 0.90.0
+	+ Version 4.1.4.2 - Release 29 Mar, 2015 - Control Window Tweaks Edition.
+		- New: Added part name to description for Antennas, Solar Panels, and Lights in Control Window.
+		- Fixed: If CLS is not installed, or CLS is disabled, Control Button is grayed out and Manifest Window is stuck in one position on screen.
 * 2015-0323: 0.90.0_4.1.4.1 (PapaJoesSoup) for KSP 0.90.0
 	+ Version 0.90.0_4.1.4.1 - Release 22 Mar, 2015 - RT Antenna Integration Edition.
 		- New:  Added Remote Tech (RT) Antenna control support.
