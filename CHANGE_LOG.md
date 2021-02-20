@@ -1,5 +1,9 @@
 # ShipManifest :: Change Log
 
+* 2015-0625: 4.4.0.2 (PapaJoesSoup) for KSP 0.90.
+	+ Version 4.4.0.2 - Release 24 June, 2015 - Docked Vessel Transfers Edition.
+		- New:  Added StockCrewXferOverride flag to SMInterface
+		- New:  Added check for full DeepFreezer when Stock Transfer Initiated and Override is On.  Ignore event if Freezer is full, and allow DeepFreeze to handle it.
 * 2015-0623: 4.4.0.1 (PapaJoesSoup) for KSP 0.90.
 	+ Version 4.4.0.1 - Release 23 June, 2015 - Docked Vessel Transfers Edition.
 		- Fixed:  When switching vessels while in MapView with Crew Selected and CLS installed and enabled, errors are generated in log during transition.
