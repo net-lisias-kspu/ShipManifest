@@ -1,5 +1,8 @@
 # ShipManifest :: Change Log
 
+* 2014-0530: 0.23.5.3.3 (PapaJoesSoup) for KSP 0.23
+	+ Version 0.23.5.3.3 - 29 May, 2014 - CLS is Optonal Edition.
+		- New:  CLS is now a soft dependency.  if you install it, SM will configure for it's use.  If you do not install it, SM will automatically detect that and set Enable CLS Off.
 * 2014-0227: 0.23.3.1.5 (PapaJoesSoup) for KSP 0.23
 	+ Real time Crew transfers with sound.
 	+ Resource transfer amount entry field.
