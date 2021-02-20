@@ -1,5 +1,13 @@
 # ShipManifest :: Change Log
 
+* 2016-0822: 5.1.2.2 (PapaJoesSoup) for KSP 1.1.3
+	+ Version 5.1.2.2 - Release 21 Aug, 2016 - KSP 1.1.3 Optimization Edition.
+		- New:  Tweak of tooltips to make them more readable.  changed style and added border.
+		- New:  Refactored code to ensure explicit variable type assignments.
+		- New:  Additional refactoring for performance and improved garbage collection.
+		- Fixed: Crew transfers were incorrectly playing Pumping sounds.
+		- Fixed: Corrected a logic error in Crew Transfers that caused crew swaps in parts that have a crew capacity greater than their internal seat count.
+		- SM now properly supports "Standing Room Only Transfers".
 * 2016-0725: 5.1.2.1 (PapaJoesSoup) for KSP 1.1.3
 	+ Version 5.1.2.1 - Release 24 Jul, 2016 - KSP 1.1.3 Optimization Edition.
 		- Fixed: Enumeration error on kerbal action in Roster Window.  Moved action to outside enumerator, so change to list does not throw error.
