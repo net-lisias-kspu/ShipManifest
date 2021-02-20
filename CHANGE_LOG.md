@@ -1,5 +1,15 @@
 # ShipManifest :: Change Log
 
+* 2015-0115: 0.90.0_3.3.4 (PapaJoesSoup) for KSP 0.90.0
+	+ Version 0.90.0_3.3.4 - 15 Jan, 2015 - Bugs, Mod Tweaks and More Edition.
+		- New:  Added a Limited Highlighting switch.  When on, highlights only source and target parts.
+			- Highlighting switch must be enabled to use.
+		- New:  Added close buttons to upper right of most windows.  Cleaned up App launcher toggle button behavior, and synced with close buttons.
+		- New:  Added detection for IVA. Hide Ship Manifest Window when in IVA.
+		- New:  CLS highlightng returns.  Previous method replaced with new model. Livable parts only will be highlighted by SM.
+			- To view passable parts, select the space from the CLS plugin menu.
+		- Fixed:  Due to KSP 0.90.0 changes, when using Roster, changes to Kerbal names causes the role to change (bad).
+				- Removed ability to edit name of existing Kerbals.
 * 2014-1029: 0.25.0_3.3.2b (PapaJoesSoup) for KSP 0.24.0.
 	+ Fix for disappearing Stock Toolbar.
 * 2014-0928: 0.24.2_3.3.2 (PapaJoesSoup) for KSP 0.24.0.
