@@ -1,5 +1,8 @@
 # ShipManifest :: Change Log
 
+* 2017-0129: 5.1.3.3 (PapaJoesSoup) for KSP 1.2.2
+	+ Version 5.1.3.3 - Release 29 Jan 2017 - KSP 1.2.2 Compatibility Edition
+		- Fixed:  Object not found error in ModDockedVessels Get LaunchID.  now properly returns a 0 if the underlying object is null.
 * 2017-0117: 5.1.3.2 (PapaJoesSoup) for KSP 1.2.2
 	+ Version 5.1.3.2 - Release 16 Jan 2017 - KSP 1.2.2 Compatibility Edition
 		- New:  Refactored for KSP 1.2.2
