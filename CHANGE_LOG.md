@@ -1,5 +1,15 @@
 # ShipManifest :: Change Log
 
+* 2017-0601: 5.1.4.2 (PapaJoesSoup) for KSP 1.3.0
+	+ Version 5.1.4.2 - Release 31 May 2017 - KSP 1.3 Compatibility Edition
+		- Fixed: compatibility with latest DeepFreeze.  Freeze action from Roster Window was failing.
+		- Fixed: Some localization was not complete.  Added additional tags for text not caught in first pass.
+		- Fixed: Highlighting of parts was occurring outside the boundaries of the scroll windows.
+		- Misc:  Cleaned up text rendering in general.  Converted to consistent use of C# string interpolation across mod.
+		- Misc:  Cleaned up some code style issues.  I've been wanting to do this for a while, so KSP 1.3 was a good time to do it.
+			- This affected the SMWrapper.cs class for modders, and may break your mod.
+			- If you use this or reflection to access SM, some methods had capitization changes.
+			- Ex: SM... was replaced with Sm... get... was replaced with Get...  Nothing is gone, just "altered" :)
 * 2017-0526: 5.1.4.1 (PapaJoesSoup) for KSP 1.3.0
 	+ Version 5.1.4.1 - Release 26 May 2017 - KSP 1.3 Compatibility Edition
 		- New:  Implemented Localization system.  Now it is possible to translate SM into other languages.
