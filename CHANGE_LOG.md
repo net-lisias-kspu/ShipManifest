@@ -1,5 +1,9 @@
 # ShipManifest :: Change Log
 
+* 2016-0515: 5.1.0.0 (PapaJoesSoup) for KSP 1.1.3
+	+ Version 5.1.0.0 - Release 14 May, 2016 - KSP 1.1.2 Compatability Update
+		- New:  Updated mod to support KSP 1.1.2.
+		- New:  Updated screen maeeages to use new object model.
 * 2016-0405: 5.0.9.0 (PapaJoesSoup) for KSP 1.1 PRE-RELEASE
 	+ Version 5.0.9.0 - Release 05 Apr, 2016 - KSP 1.1 Compatability Update *\* PreRelease 
 		- New:  Updated code to run on KSP 1.1
