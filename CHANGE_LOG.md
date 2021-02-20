@@ -1,5 +1,16 @@
 # ShipManifest :: Change Log
 
+* 2015-0615: 4.3.1.0 (PapaJoesSoup) for KSP 0.90.
+	+ Version 4.3.1.0 - Release 15 June, 2015 - GUI Skins, DeepFreeze & Bugs Edition.
+		- New:  Tightened Integration with DeepFreeze by adding DF Interface component and simplifying Frozen Kerbal display and detection...
+		- New:  Added ability to Freeze/Thaw Kerbals in  DeepFreeze Container via Roster window.  Works only when a freezer is part of the active vessel and contains kerbals.
+		- New:  Added New GUI Skin: Unity Default.  Selectable in Settings Config Tab and takes effect immediately.
+		- New:  Updated Roster display to improve general layout and readability.
+		- New:  Added Mods Tab to Settings Window.  Displayes Installed Mods/Assemblies.
+		- Fixed:  Bug in settings.  When cancelling or saving changes in Space Center, Settings Icon does not revert on toolbar.
+		- Fixed:  Bug with KIS compatability.  When transferring Kerbals with inventory, a race condition occurs with OnCrewTransferred Event handler and causes errors.
+			- Added switch in SMSetting.dat to allow disabling onCrewTransferred Event call if KIS still is causing issues.
+		- Fixed:  Bug in Multi Part transfers.  Transfers sometimes still hang.  Added check for maxAmount to Transfer, and a flag for transfer in progress to allow Stop button to remain visible until completion...
 * 2015-0608: 4.3.0.2 (PapaJoesSoup) for KSP 0.90.
 	+ Version 4.3.0.2 - Release 08 June, 2015 - Crew, Interfaces, & Refactoring Edition.
 		- New:  Cleaned up highlighting when undocking events occur to turn off highlighting on vessel parts/vessels that become detatched...
