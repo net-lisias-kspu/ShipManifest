@@ -1,5 +1,11 @@
 # ShipManifest :: Change Log
 
+* 2020-1230: 6.0.2.0 (Micha) for KSP 1.11.0
+	+ Version 6.0.2.0 - Release 30 Dec 2020 - KSP 1.11.0
+		- New: recompiled for KSP 1.11
+		- New: added chinese translation (thanks to Grassland-CN)
+		- Fixed: Kerbal EVA when part has no IVA (fixes #7)
+		- Changed: retargeted to DotNet 4.6.1
 * 2020-0614: 6.0.1.0 (Micha) for KSP 1.10.1
 	+ NOTE Also compatible with KSP1.10
 	+ Version 6.0.1.0 - Release 14 Jun 2020 - KSP 1.9.1
