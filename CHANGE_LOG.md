@@ -1,5 +1,29 @@
 # ShipManifest :: Change Log
 
+* 2017-0526: 5.1.4.1 (PapaJoesSoup) for KSP 1.3.0
+	+ Version 5.1.4.1 - Release 26 May 2017 - KSP 1.3 Compatibility Edition
+		- New:  Implemented Localization system.  Now it is possible to translate SM into other languages.
+		- New:  Realism Settings Refactor.  Realism Mode is redefined and easier to use; settings are now more granular.
+		- New:  - Added Radio switch for realism Categories:  Full, None, Default, Custom.
+		- New:  - Added new setting to the Realism Tab "Realistic Control". This affects ship control window and uncontrolled resource transfers.
+		- New:  - Added new setting to the Realism Tab "Enable Roster Modifications".  Affects Roster actions Create, Add, Edit, Remove, and Respawn.
+		- New:  - Added new setting to Realism Tab.  "Realistic Transfers".  This affects Transfer features for crew, science and resources.
+		- New:  Added several new tooltips in the Mod.  Cleaned/updated up several others.
+		- New:  Refactored Vessel to Vessel transfers.  Now separates multiple vessels originating from the same launch.
+		- Fixed:  Selecting a resource in the Manifest Window triggered an enumeration error.
+		- Fixed:  Crew respawn was always allowed.  Should be disabled for Realism.  Roster actions are now impacted by Enable Roster Modifications setting.
+		- Fixed:  Issue with multiple instances of SMAddon class loading when changing scenes.
+		- Fixed:  Roster and Settings windows continued to be displayed even when Pause Menu or Hide UI is on.
+		- Fixed:  Manifest and other windows disappeared in flight under certain conditions (when staging/part destruction occurs).
+		- Fixed:  Antennas not properly working. Post fix RemoteTech support is not yet confirmed.
+		- Fixed:  Part highlighting on mouseover of part selection button was broken.  Bug introduced when I refactored highlighting awhile ago.
+		- Fixed:  Sound file changes were not taking immediate effect.  Scene change was required. Github Issue #25
+		- Fixed:  Resource totals not preserved during Transfers.  Github Issue:  #36
+		- Fixed:  Resource Transfers exhibited incorrect stop button behavior with Target to source transfers.
+		- Fixed:  Tourists could go EVA, and should not.  Github Issue:  #37
+		- Fixed:  ToolTips displayed even when SM interface is not.  Github Issue: #38
+		- Fixed:  ToolTips not properly updating on Xfer button. Github Issue:  #39
+		- Fixed:  Crew Xfers between full parts failing under certain circumstances.  Github Issue #40
 * 2017-0523: 5.1.4.0 (PapaJoesSoup) for KSP 1.3 PRE-RELEASE
 	+ Version 5.1.4.0 - Release 22 May 2017 - KSP 1.3 Compatibility Edition (1.2.9 Prerelease)
 		- New:  Implemented Localization system.  Now it is possible to translate SM into other languages.
