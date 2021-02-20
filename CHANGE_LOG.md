@@ -1,5 +1,16 @@
 # ShipManifest :: Change Log
 
+* 2020-0614: 6.0.1.0 (Micha) for KSP 1.10.1
+	+ NOTE Also compatible with KSP1.10
+	+ Version 6.0.1.0 - Release 14 Jun 2020 - KSP 1.9.1
+				- New: Show Applicants in Roster Window and allow editing/hiring them
+				- New: added space-suit selection to Edit Kerbal
+				- New: added veteran checkbox to Edit Kerbal
+				- New: added a way to detect and fix broken Kerbals in the roster window (fixes #2)
+				- New: added german translation
+				- Fixed: KIS inventory transfers correctly again when moving a single crew member (partially fixes #21)
+				- Fixed: Refactored and fixed some of the parts highlighting. Target parts should be correctly highlighted again.
+				- Fixed: several null reference exceptions
 * 2020-0304: 6.0.0.2 (Micha) for KSP 1.9.1
 	+ Release of SM for KSP1.9.x
 * 2019-1123: 6.0.0.1_mw (Micha) for KSP 1.8.x
