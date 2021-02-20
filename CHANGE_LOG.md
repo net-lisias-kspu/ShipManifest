@@ -1,5 +1,11 @@
 # ShipManifest :: Change Log
 
+* 2015-0606: 4.3.0.1 (PapaJoesSoup) for KSP 0.90.
+	+ Version 4.3.0.1 - Release 06 June, 2015 - Crew, Interfaces, & Refactoring Edition.
+		- New:  Refactored Resource transfers to improve overall transfer speed, flow & "feel".  Lag was causing issues on larger vessels.
+		- New:  Refactored Vessel update methods to properly udate various part lists if vessel changes occur while SM windows are open (undocking, etc.).  Now various windows properly refresh.
+		- Fixed:  Bug in multi-part transfers that allowed continued transfers when a transfer is initiated and then you undock a vessel from a station.
+		- Fixed:  Bug in Crew Transfers that allowed continued transfers when a crew transfer is initiated and then you undock a vessel from a station.
 * 2015-0605: 4.3.0.0 (PapaJoesSoup) for KSP 0.90.
 	+ Version 4.3.0.0 - Release 04 June, 2015 - Crew, Interfaces, & Refactoring Edition.
 		- New:  Refactored Crew transfers into separate class to improve visibility and state management.
