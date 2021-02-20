@@ -1,5 +1,10 @@
 # ShipManifest :: Change Log
 
+* 2015-0617: 4.4.0.0 (PapaJoesSoup) for KSP 0.90.
+	+ Version 4.4.0.0 - Release 17 June, 2015 - Docked Vessel Transfers Edition.
+		- New:  Added ability to transfer, dump/fill resources by Docked vessel.  Multi resource, Docked Vessel(s) <-> Docked vessel(s), Docked Vessel(s) <-> Part(s), and Part(s) <-> Part(s) transfers are now possible.  Huge flexibility.
+		- New:  Highlighting Refactoring.  Docked Vessel highlighting, on mouseover cleanup, and standardized mouseover highlighting model.
+		- New:  Opened up SM to allow operation in MapView while in flight.  All features work, and Toolbar button is displayed while in MapView during flight.
 * 2015-0615: 4.3.1.0 (PapaJoesSoup) for KSP 0.90.
 	+ Version 4.3.1.0 - Release 15 June, 2015 - GUI Skins, DeepFreeze & Bugs Edition.
 		- New:  Tightened Integration with DeepFreeze by adding DF Interface component and simplifying Frozen Kerbal display and detection...
