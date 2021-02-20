@@ -1,5 +1,9 @@
 # ShipManifest :: Change Log
 
+* 2016-0405: 5.0.9.0 (PapaJoesSoup) for KSP 1.1 PRE-RELEASE
+	+ Version 5.0.9.0 - Release 05 Apr, 2016 - KSP 1.1 Compatability Update *\* PreRelease 
+		- New:  Updated code to run on KSP 1.1
+		- New:  Modified screen message displays to account for channges to the object model.  SM screen messages are wip.
 * 2016-0315: 5.0.1.0 (PapaJoesSoup) for KSP 1.0.5
 	+ Version 5.0.1.0 - Release 14 Mar, 2016 - Bug fixes and APIs
 		- New:  Removed DFInterface.dll.  Added Reflection based Wrapper class source code for integration with DeepFreeze.
