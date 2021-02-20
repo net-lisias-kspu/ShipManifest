@@ -1,5 +1,19 @@
 # ShipManifest :: Change Log
 
+* 2015-0605: 4.3.0.0 (PapaJoesSoup) for KSP 0.90.
+	+ Version 4.3.0.0 - Release 04 June, 2015 - Crew, Interfaces, & Refactoring Edition.
+		- New:  Refactored Crew transfers into separate class to improve visibility and state management.
+		- New:  Crew transfers (part to part & seat to seat) now show both kerbals involved as moving, when a kerbal swap occurs.
+		- New:  Added DeepFreeze mod support for handling/viewing frozen kerbals. No more xferring frozen kerbals, and Roster Window now shows frozen kerbals.
+		- New:  Added SMInterface.dll for other mods to detect Crew xfers in progress and act accordingly.
+		- New:  Add onCrewTransferred Event trigger to be consistent with Stock Crew Transfers and to support KIS inventory movement when crew transfers occur.
+		- New:  Added Kerbal Filter for Roster Window:  All, vessel, Available, Dead/Missing.  Vessel filter is omitted when in Space Center.
+		- New:  Refactoring - moved window vars from Settings into window level code.
+		- New:  Refactoring - Added InstalledMods static class to centralize mod assembly detection and soft dependencies.
+		- New:  Refactoring - Altered Settings Save to segregate Hidden settings for ease of identification by users.
+		- Fixed:  Bug in multi-part transfers that lock transfer in run state, with no progress.  Gave loops timeouts, and relaxed the resolution of the calculation to allow for rounding errors.
+		- Fixed:  Bug in Crew Transfer.  When transferring a crew member to a full part with realism off, the crew member does not swap and disappears...
+		- Fixed:  Bug in Crew Transfer with CLS installed.  First transfer works fine, subsequent xfers fail, and Transfer is stuck in moving...
 * 2015-0514: 4.2.1.1 (PapaJoesSoup) for KSP 0.90.
 	+ Version 4.2.1.1 - Release 14 May, 2015 - Highlighting Updates Edition Bug Fix.
 		- Fixed:  In Settings, if CLS is not installed, or CLS is disabled, changing the Enable Highlighting setting causes some buttons below it to become disabled.
