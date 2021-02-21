@@ -183,8 +183,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in Ship Manifest Window.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+        Log.error(ex, "in Ship Manifest Window.");
       }
     }
 
@@ -213,8 +212,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in Ship Manifest Window - SourceTransferViewer.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+        Log.error(ex, "in Ship Manifest Window - SourceTransferViewer.");
       }
     }
 
@@ -247,9 +245,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in WindowTransfer.SourceDetailsViewer.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in WindowTransfer.SourceDetailsViewer.");
       }
     }
 
@@ -334,8 +330,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in Ship Manifest Window - TargetTransferViewer.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+        Log.error(ex, "in Ship Manifest Window - TargetTransferViewer.");
       }
     }
 
@@ -368,9 +363,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in WindowTransfer.TargetDetailsViewer.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in WindowTransfer.TargetDetailsViewer.");
       }
     }
 
@@ -446,8 +439,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage($"Error in Windowtransfer.PartsTransferViewer ({xferType}) at step:  {step}.  Error:  {ex}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "Error in Windowtransfer.PartsTransferViewer ({0}) at step: {1}", xferType, step);
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -564,8 +556,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage($"Error in Windowtransfer.VesselTransferViewer ({xferType}) at step:  {step}.  Error:  {ex}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "Error in Windowtransfer.VesselTransferViewer ({0}) at step:  {1}", xferType, step);
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -745,8 +736,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in WindowTransfer.CrewDetails.  Error attempting to check DeepFreeze for FrozenKerbals.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+        Log.error(ex, "in WindowTransfer.CrewDetails.  Error attempting to check DeepFreeze for FrozenKerbals");
         //Debug.Log("Error attempting to check DeepFreeze for FrozenKerbals");
         //Debug.Log(ex.Message);
       }
@@ -1566,8 +1556,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage(
-            $" in WindowTransfer.ResourceFlowButtons at step:  {step}.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+          Log.error(ex, "in WindowTransfer.ResourceFlowButtons at step: {0}", step);
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -1628,9 +1617,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage(
-            $"Error in WindowTransfer.PartButtonToggled ({xferType}) at step:  {step}.  Error:  {ex}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "Error in WindowTransfer.PartButtonToggled ({0}) at step: {1}", xferType, step);
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -1676,9 +1663,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage(
-            $"Error in WindowTransfer.VesselButtonToggled ({xferType}) at step:  {step}.  Error:  {ex}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "Error in WindowTransfer.VesselButtonToggled ({0}) at step: {1}", xferType, step);
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -1800,8 +1785,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in GetScienceCount.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in GetScienceCount");
         return 0;
       }
     }
@@ -1822,8 +1806,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in GetScienceCount.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in GetScienceCount");
         return 0;
       }
     }
@@ -1859,7 +1842,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in DisplayVesselResourceTotals().  Error:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "in DisplayVesselResourceTotals()");
       }
       string displayAmount = $"({currAmount:#######0}/{totAmount:######0})";
 

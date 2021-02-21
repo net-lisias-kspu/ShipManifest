@@ -79,8 +79,7 @@ namespace ShipManifest.InternalObjects
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in  SetPartsHighlight.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+        Log.error(ex, "in SetPartsHighlight");
       }
     }
 
@@ -96,8 +95,7 @@ namespace ShipManifest.InternalObjects
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in  SetPartHighlight.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+        Log.error(ex, "in SetPartHighlight");
       }
     }
 
@@ -135,8 +133,7 @@ namespace ShipManifest.InternalObjects
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in SMHighlighter.MouseOverHighlight at step {step}.  Error:  {ex}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in SMHighlighter.MouseOverHighlight at step {0}", step);
       }
     }
 
@@ -304,8 +301,7 @@ namespace ShipManifest.InternalObjects
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage(
-            $" in HighlightCLSVessel (repeating error).  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+          Log.error(ex, "in HighlightCLSVessel (repeating error)");
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -364,8 +360,7 @@ namespace ShipManifest.InternalObjects
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage($" in SMHighlighter.UpdateHighlighting (repeating error).  Error in step:  {step}.  Error:  {ex.Message}\n\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "in SMHighlighter.UpdateHighlighting (repeating error).  Error in step: {0}", step);
           SMAddon.FrameErrTripped = true;
         }
       }

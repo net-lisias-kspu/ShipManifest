@@ -565,7 +565,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in GetHatches().\r\nError:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in GetHatches()");
       }
     }
 
@@ -597,7 +597,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in GetSolarPanels().\r\nError:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in GetSolarPanels()");
       }
     }
 
@@ -635,7 +635,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in GetAntennas().\r\nError:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in GetAntennas()");
       }
     }
 
@@ -668,7 +668,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in GetLights().\r\nError:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in GetLights()");
       }
     }
 
@@ -695,7 +695,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in GetLabs().\r\nError:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in GetLabs()");
       }
     }
 
@@ -745,7 +745,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in GetSelectedVesselParts().\r\nError:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in GetSelectedVesselParts()");
         resourcePartList = new List<Part>();
       }
       return resourcePartList;
@@ -786,7 +786,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in GetSelectedVesselParts().\r\nError:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in GetSelectedVesselParts()");
         vesselpartList = new List<Part>();
       }
       return vesselpartList;

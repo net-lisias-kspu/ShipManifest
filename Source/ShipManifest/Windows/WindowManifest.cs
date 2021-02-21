@@ -107,9 +107,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage(
-            $" in WindowManifest.Display.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "in WindowManifest.Display");
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -154,9 +152,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage(
-            $" in PreLaunchGui.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "in PreLaunchGui");
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -226,9 +222,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage(
-            $" in WindowManifest.ResourceButtonList.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "in WindowManifest.ResourceButtonList");
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -286,9 +280,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in WindowManifest.ResourceButtonToggled.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true); // in, Error
+        Log.error(ex, "in WindowManifest.ResourceButtonToggled"); // in, Error
       }
       SMAddon.SmVessel.RefreshLists();
     }
@@ -358,9 +350,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage(
-            $" in WindowManifest.ResourceDetailsViewer.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true); // in, Error
+          Log.error(ex, "in WindowManifest.ResourceDetailsViewer"); // in, Error
           SMAddon.FrameErrTripped = true;
         }
       }
@@ -386,9 +376,7 @@ namespace ShipManifest.Windows
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $" opening Settings Window.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error,
-            true);
+          Log.error(ex, "opening Settings Window");
         }
       }
 
@@ -410,9 +398,7 @@ namespace ShipManifest.Windows
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $" opening Roster Window.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error,
-            true);
+          Log.error(ex, "opening Roster Window");
         }
       }
 
@@ -425,9 +411,7 @@ namespace ShipManifest.Windows
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $" opening Control Window.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error,
-            true);
+          Log.error(ex, " opening Control Window");
         }
       }
       GUILayout.EndHorizontal();
@@ -542,9 +526,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in WindowManifest.ReconcileSelectedXferParts.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true); // in, Error
+        Log.error(ex, "in WindowManifest.ReconcileSelectedXferParts"); // in, Error
       }
     }
   }

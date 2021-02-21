@@ -65,9 +65,7 @@ namespace ShipManifest.Windows.Tabs.Control
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in Antenna Tab at step {step}.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in Antenna Tab at step {0}", step);
       }
       GUILayout.EndVertical();
     }

@@ -42,7 +42,7 @@ namespace ShipManifest.Windows
         GUILayout.Height(300), GUILayout.Width(500));
       GUILayout.BeginVertical();
 
-      List<string>.Enumerator errors = SmUtils.LogItemList.GetEnumerator();
+      List<string>.Enumerator errors = Log.GetEnumerator();
       while (errors.MoveNext())
       {
         if (errors.Current == null) continue;
@@ -57,13 +57,12 @@ namespace ShipManifest.Windows
       GUILayout.BeginHorizontal();
       if (GUILayout.Button(SmUtils.SmTags["#smloc_debug_001"], GUILayout.Height(20))) //"Clear log"
       {
-        SmUtils.LogItemList.Clear();
-        SmUtils.LogItemList.Add($"Info:  Log Cleared at {DateTime.UtcNow.ToString(CultureInfo.InvariantCulture)} UTC.");
+        Log.Clear();
       }
       if (GUILayout.Button(SmUtils.SmTags["#smloc_debug_002"], GUILayout.Height(20))) // "Save Log"
       {
         // Create log file and save.
-        Savelog();
+        Log.Save();
       }
       if (GUILayout.Button(SmUtils.SmTags["#smloc_debug_003"], GUILayout.Height(20))) // "Close"
       {
@@ -76,52 +75,6 @@ namespace ShipManifest.Windows
       GUILayout.EndVertical();
       GUI.DragWindow(new Rect(0, 0, Screen.width, 30));
       SMAddon.RepositionWindow(ref Position);
-    }
-
-    internal static void Savelog()
-    {
-      try
-      {
-        // time to create a file...
-        string filename = $"DebugLog_{DateTime.Now.ToString(CultureInfo.InvariantCulture).Replace(" ", "_").Replace("/", "").Replace(":", "")}.txt";
-
-        string path = Directory.GetCurrentDirectory() + @"\GameData\ShipManifest\";
-        if (SMSettings.DebugLogPath.StartsWith(@"\\"))
-          SMSettings.DebugLogPath = SMSettings.DebugLogPath.Substring(2, SMSettings.DebugLogPath.Length - 2);
-        else if (SMSettings.DebugLogPath.StartsWith(@"\"))
-          SMSettings.DebugLogPath = SMSettings.DebugLogPath.Substring(1, SMSettings.DebugLogPath.Length - 1);
-
-        if (!SMSettings.DebugLogPath.EndsWith(@"\"))
-          SMSettings.DebugLogPath += @"\";
-
-        filename = path + SMSettings.DebugLogPath + filename;
-        SmUtils.LogMessage($"File Name = {filename}", SmUtils.LogType.Info, true);
-
-        try
-        {
-          StringBuilder sb = new StringBuilder();
-          List<string>.Enumerator lines = SmUtils.LogItemList.GetEnumerator();
-          while (lines.MoveNext())
-          {
-            if (lines.Current == null) continue;
-            sb.AppendLine(lines.Current);
-          }
-          lines.Dispose();
-
-          File.WriteAllText(filename, sb.ToString());
-
-          SmUtils.LogMessage("File written", SmUtils.LogType.Info, true);
-        }
-        catch (Exception ex)
-        {
-          SmUtils.LogMessage($"Error Writing File:  {ex}", SmUtils.LogType.Error, true);
-        }
-      }
-      catch (Exception ex)
-      {
-        SmUtils.LogMessage($" in Savelog.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error,
-          true);
-      }
     }
   }
 }

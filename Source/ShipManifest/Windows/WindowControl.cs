@@ -71,9 +71,7 @@ namespace ShipManifest.Windows
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $" opening Solar Panels Tab.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error,
-            true);
+          Log.error("opening Solar Panels Tab");
         }
       }
       rect = GUILayoutUtility.GetLastRect();
@@ -93,9 +91,7 @@ namespace ShipManifest.Windows
           }
           catch (Exception ex)
           {
-            SmUtils.LogMessage(
-              $" opening Hatches Tab.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-              SmUtils.LogType.Error, true);
+            Log.error(ex, "opening Hatches Tab");
           }
         }
         rect = GUILayoutUtility.GetLastRect();
@@ -114,9 +110,7 @@ namespace ShipManifest.Windows
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $" opening Solar Panels Tab.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error,
-            true);
+          Log.error(ex, "opening Solar Panels Tab");
         }
       }
       rect = GUILayoutUtility.GetLastRect();
@@ -134,8 +128,7 @@ namespace ShipManifest.Windows
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $" opening Antennas Tab.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+          Log.error(ex, "opening Antennas Tab");
         }
       }
       rect = GUILayoutUtility.GetLastRect();
@@ -153,8 +146,7 @@ namespace ShipManifest.Windows
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $" opening Lights Tab.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+          Log.error(ex, "opening Lights Tab");
         }
       }
       rect = GUILayoutUtility.GetLastRect();
@@ -172,8 +164,7 @@ namespace ShipManifest.Windows
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $" opening Labs Tab.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+          Log.error(ex, "opening Labs Tab");
         }
       }
       rect = GUILayoutUtility.GetLastRect();

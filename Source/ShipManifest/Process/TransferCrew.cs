@@ -320,9 +320,7 @@ namespace ShipManifest.Process
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage($"Transfer State:  {CrewXferState}...", SmUtils.LogType.Error, true);
-          SmUtils.LogMessage(
-            $" in CrewTransferProcess (repeating error).  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+          Log.error(ex, "in CrewTransferProcess (repeating error). Transfer State: {0}", CrewXferState);
           SMAddon.FrameErrTripped = true;
           ResetXferProcess();
         }
@@ -364,9 +362,7 @@ namespace ShipManifest.Process
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $"in CrewTransferStartAction.  Error moving crewmember.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "in CrewTransferStartAction.  Error moving crewmember");
         }
       }
       else
@@ -383,9 +379,7 @@ namespace ShipManifest.Process
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $"in CrewTransferStartAction.  Error moving crewmember.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "in CrewTransferStartAction.  Error moving crewmember");
         }
       }
     }
@@ -419,9 +413,7 @@ namespace ShipManifest.Process
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $"in CrewTransferAction.  Error moving crewmember.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "in CrewTransferAction");
         }
       }
       else
@@ -455,9 +447,7 @@ namespace ShipManifest.Process
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $"in CrewTransferAction.  Error moving crewmember.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "in CrewTransferAction.  Error moving crewmember");
         }
       }
     }

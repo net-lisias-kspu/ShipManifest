@@ -71,9 +71,7 @@ namespace ShipManifest.Windows.Tabs.Control
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in Hatches Tab at step {step}.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in Hatches Tab at step {0}", step);
       }
       GUI.enabled = true;
       GUILayout.EndVertical();

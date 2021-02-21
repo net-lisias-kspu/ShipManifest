@@ -58,9 +58,7 @@ namespace ShipManifest.Windows.Tabs.Control
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in Light Tab at step {step}.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error,
-          true);
+        Log.error("in Light Tab at step {0}", step);
       }
       GUILayout.EndVertical();
     }

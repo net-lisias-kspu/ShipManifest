@@ -125,8 +125,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in Roster Window.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in Roster Window");
       }
     }
 
@@ -446,7 +445,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage($" in RosterListViewer.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+          Log.error(ex, "in RosterListViewer");
         }
       }
     }
@@ -546,7 +545,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in GetRosterList().\r\nError:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in GetRosterList()");
       }
     }
 
@@ -684,7 +683,7 @@ namespace ShipManifest.Windows
       {
         if (!SMAddon.FrameErrTripped)
         {
-          SmUtils.LogMessage($" in GetRosterList().\r\nError:  {ex}", SmUtils.LogType.Error, true);
+          Log.error(ex, "in GetRosterList()");
         }
         return $"{SmUtils.SmTags["#smloc_error_001"]}:"; // "Display Error"
       }
@@ -745,14 +744,12 @@ namespace ShipManifest.Windows
         }
         else
         {
-          SmUtils.LogMessage($"ThawKerbal.  IsDFInstalled:  {InstalledMods.IsDfInstalled}", SmUtils.LogType.Info,
-            true);
+          Log.detail("ThawKerbal.  IsDFInstalled:  {0}", InstalledMods.IsDfInstalled);
         }
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in ThawKerbal.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in ThawKerbal");
       }
     }
 
@@ -775,8 +772,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in FreezeKerbal.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in FreezeKerbal");
       }
     }
 
@@ -799,8 +795,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in HireKerbal.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in HireKerbal");
       }
     }
 
@@ -816,8 +811,7 @@ namespace ShipManifest.Windows
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in RepairKerbal.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in RepairKerbal");
       }
     }
 

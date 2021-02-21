@@ -100,9 +100,7 @@ namespace ShipManifest.InternalObjects
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in SMAddon.LoadSounds.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
-        // ReSharper disable once PossibleIntendedRethrow
+        Log.error(ex, "in SMAddon.LoadSounds");
         throw ex;
       }
     }

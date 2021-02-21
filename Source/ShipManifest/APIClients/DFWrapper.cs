@@ -72,7 +72,7 @@ namespace ShipManifest.APIClients
         KerbalInfoType = null;
         DeepFreezerType = null;
         FrznCrewMbrType = null;
-        LogFormatted("Attempting to Grab DeepFreeze Types...");
+        Log.detail("Attempting to Grab DeepFreeze Types...");
 
         //find the base type
         DfType = AssemblyLoader.loadedAssemblies
@@ -85,7 +85,7 @@ namespace ShipManifest.APIClients
           return false;
         }
 
-        LogFormatted("DeepFreeze Version:{0}", DfType.Assembly.GetName().Version.ToString());
+        Log.detail("DeepFreeze Version:{0}", DfType.Assembly.GetName().Version.ToString());
 
         //now the KerbalInfo Type
         KerbalInfoType = AssemblyLoader.loadedAssemblies
@@ -121,32 +121,31 @@ namespace ShipManifest.APIClients
         }
 
         //now grab the running instance
-        LogFormatted("Got Assembly Types, grabbing Instance");
+        Log.detail("Got Assembly Types, grabbing Instance");
         try
         {
           ActualDf = DfType.GetField("Instance", BindingFlags.Public | BindingFlags.Static).GetValue(null);
         }
         catch (Exception)
         {
-          LogFormatted("No Instance found - most likely you have an old DeepFreeze installed");
+          Log.detail("No Instance found - most likely you have an old DeepFreeze installed");
           return false;
         }
         if (ActualDf == null)
         {
-          LogFormatted("Failed grabbing Instance");
+          Log.detail("Failed grabbing Instance");
           return false;
         }
 
         //If we get this far we can set up the local object and its methods/functions
-        LogFormatted("Got Instance, Creating Wrapper Objects");
+        Log.detail("Got Instance, Creating Wrapper Objects");
         DeepFreezeApi = new DfApi(ActualDf);
         _dfWrapped = true;
         return true;
       }
       catch (Exception ex)
       {
-        LogFormatted("Unable to setup InitDFWrapper Reflection");
-        LogFormatted("Exception: {0}", ex);
+        Log.error(ex, "Unable to setup InitDFWrapper Reflection");
         _dfWrapped = false;
         return false;
       }
@@ -168,19 +167,18 @@ namespace ShipManifest.APIClients
           //for events we also add a handler
           //Object tstfrozenkerbals = DFType.GetField("FrozenKerbals", BindingFlags.Public | BindingFlags.Static).GetValue(null);
 
-          LogFormatted("Getting APIReady Object");
+          Log.detail("Getting APIReady Object");
           _apiReadyField = DfType.GetField("APIReady", BindingFlags.Public | BindingFlags.Static);
-          LogFormatted($"Success: {_apiReadyField != null}");
+          Log.detail("Success: {0}", _apiReadyField != null);
 
-          LogFormatted("Getting FrozenKerbals Object");
+          Log.detail("Getting FrozenKerbals Object");
           _frozenKerbalsMethod = DfType.GetMethod("get_FrozenKerbals", BindingFlags.Public | BindingFlags.Instance);
           _actualFrozenKerbals = _frozenKerbalsMethod.Invoke(_actualDfapi, null);
-          LogFormatted($"Success: {_actualFrozenKerbals != null}");
+          Log.detail("Success: {0}", _actualFrozenKerbals != null);
         }
         catch (Exception ex)
         {
-          LogFormatted("Unable to Instantiate DFAPI object using Reflection");
-          LogFormatted("Exception: {0}", ex);
+          Log.error(ex, "Unable to Instantiate DFAPI object using Reflection");
         }
       }
 
@@ -222,7 +220,7 @@ namespace ShipManifest.APIClients
           Dictionary<string, KerbalInfo> returnvalue = new Dictionary<string, KerbalInfo>();
           if (_frozenKerbalsMethod == null)
           {
-            LogFormatted("Error getting FrozenKerbals - Reflection Method is Null");
+            Log.detail("Error getting FrozenKerbals - Reflection Method is Null");
             return returnvalue;
           }
           object actualDFtest = DfType.GetField("Instance", BindingFlags.Public | BindingFlags.Static)?.GetValue(null);
@@ -264,7 +262,7 @@ namespace ShipManifest.APIClients
         }
         catch (Exception ex)
         {
-          LogFormatted("Unable to extract FrozenKerbals Dictionary: {0}", ex.Message);
+          Log.error(ex, "Unable to extract FrozenKerbals Dictionary");
         }
         return dictToReturn;
       }
@@ -445,7 +443,7 @@ namespace ShipManifest.APIClients
         }
         catch (Exception ex)
         {
-          LogFormatted("Arrggg: {0}", ex.Message);
+          Log.error(ex, this);
           //throw ex;
           //
         }
@@ -472,7 +470,7 @@ namespace ShipManifest.APIClients
         }
         catch (Exception ex)
         {
-          LogFormatted("Arrggg: {0}", ex.Message);
+          Log.error(ex, this);
           return false;
         }
       }
@@ -493,7 +491,7 @@ namespace ShipManifest.APIClients
         }
         catch (Exception ex)
         {
-          LogFormatted("Arrggg: {0}", ex.Message);
+          Log.error(ex, this);
           return false;
         }
       }
@@ -695,32 +693,5 @@ namespace ShipManifest.APIClients
         get { return (string)_experienceTraitNameField.GetValue(_actualFrozenKerbalInfo); }
       }
     }
-
-    #region Logging Stuff
-
-    /// <summary>
-    /// Some Structured logging to the debug file - ONLY RUNS WHEN DLL COMPILED IN DEBUG MODE
-    /// </summary>
-    /// <param name="message">Text to be printed - can be formatted as per String.format</param>
-    /// <param name="strParams">Objects to feed into a String.format</param>
-    [System.Diagnostics.Conditional("DEBUG")]
-    internal static void LogFormatted_DebugOnly(string message, params object[] strParams)
-    {
-      LogFormatted(message, strParams);
-    }
-
-    /// <summary>
-    /// Some Structured logging to the debug file
-    /// </summary>
-    /// <param name="message">Text to be printed - can be formatted as per String.format</param>
-    /// <param name="strParams">Objects to feed into a String.format</param>
-    internal static void LogFormatted(string message, params object[] strParams)
-    {
-      message = string.Format(message, strParams);
-      string strMessageLine = $"{DateTime.Now},{Assembly.GetExecutingAssembly().GetName().Name}-{MethodBase.GetCurrentMethod()?.DeclaringType?.Name},{message}";
-      UnityEngine.Debug.Log(strMessageLine);
-    }
-
-    #endregion Logging Stuff
   }
 }

@@ -34,7 +34,7 @@ namespace ShipManifest.APIClients
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Cannot load CLS assembly.  Error:  {ex}", SmUtils.LogType.Error, false);
+        Log.error(ex, "Cannot load CLS assembly");
       }
     }
 

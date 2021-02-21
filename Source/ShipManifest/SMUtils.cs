@@ -21,14 +21,6 @@ namespace ShipManifest
     internal static bool StrHasDecimal;
     internal static bool StrHasZero;
 
-    // ReSharper disable once FieldCanBeMadeReadOnly.Local
-    private static List<string> _logItemList = new List<string>();
-
-    internal static List<string> LogItemList
-    {
-      get { return _logItemList; }
-    }
-
     internal static string DisplayVesselResourceTotals(string selectedResource)
     {
       string displayAmount = "";
@@ -94,7 +86,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        LogMessage($" in DisplayResourceTotals().  Error:  {ex}", LogType.Error, true);
+        Log.error(ex, "in DisplayResourceTotals()");
       }
 
       return displayAmount;
@@ -170,24 +162,6 @@ namespace ShipManifest
       part.Dispose();
       return results;
     }
-    internal static void LogMessage(string msg, LogType type, bool verbose)
-    {
-      try
-      {
-        // Added rolling error list. This limits growth.  Configure with ErrorListLength
-        if (_logItemList.Count > int.Parse(SMSettings.ErrorLogLength) && int.Parse(SMSettings.ErrorLogLength) > 0)
-          _logItemList.RemoveRange(0, _logItemList.Count - int.Parse(SMSettings.ErrorLogLength));
-        if (verbose) _logItemList.Add($"{type}: {msg}");
-        if (type == LogType.Error && SMSettings.AutoDebug)
-          WindowDebugger.ShowWindow = true;
-        Debug.Log($"[ShipManifest] - {type}:  {msg}");
-      }
-      catch (Exception ex)
-      {
-        _logItemList.Add($"Error: {ex}");
-        WindowDebugger.ShowWindow = true;
-      }
-    }
 
     internal static string GetStringDecimal(string strValue)
     {
@@ -231,12 +205,6 @@ namespace ShipManifest
           SmTags.Add(tags.Current.ToString(), Localizer.GetStringByTag(tags.Current.ToString()).Replace("\\n", "\n"));
         }
       }
-    }
-
-    internal enum LogType
-    {
-      Info,
-      Error
     }
   }
 }

@@ -159,9 +159,7 @@ namespace ShipManifest.Windows.Tabs.Control
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in Vessels Tab at step {step}.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in Vessels Tab at step {0}", step);
       }
       GUI.enabled = true;
       GUILayout.EndVertical();

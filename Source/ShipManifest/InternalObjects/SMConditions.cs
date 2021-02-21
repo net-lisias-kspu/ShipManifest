@@ -132,8 +132,7 @@ namespace ShipManifest.InternalObjects
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in CanBeXferred.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in CanBeXferred");
       }
       return results;
     }
@@ -228,8 +227,7 @@ namespace ShipManifest.InternalObjects
             values += $"FlightGlobals.ActiveVessel.vesselType = {FlightGlobals.ActiveVessel.vesselType}\r\n";
           values += $"CameraManager.Instance.currentCameraMode != CameraManager.CameraMode.IVA = {(CameraManager.Instance.currentCameraMode != CameraManager.CameraMode.IVA)}";
 
-          SmUtils.LogMessage(
-            $" in CanShowShipManifest (repeating error).  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}\r\n\r\nValues:  {values}", SmUtils.LogType.Error, true);
+          Log.error(ex, "in CanShowShipManifest (repeating error).\r\n\r\nValues: {0}", values);
           SMAddon.FrameErrTripped = true;
         }
         return false;

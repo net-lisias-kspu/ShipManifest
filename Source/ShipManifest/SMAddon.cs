@@ -113,7 +113,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.Awake.  Error:  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.Awake.");
       }
     }
 
@@ -195,13 +195,13 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.Start.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.Start");
       }
     }
 
     internal void OnDestroy()
     {
-      //Debug.Log("[ShipManifest]:  SmAddon.OnDestroy");
+      Log.dbg("SmAddon.OnDestroy");
       try
       {
         if (SMSettings.Loaded)
@@ -234,7 +234,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.OnDestroy.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.OnDestroy");
       }
     }
 
@@ -305,7 +305,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.OnGUI.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.OnGUI");
       }
     }
 
@@ -358,9 +358,7 @@ namespace ShipManifest
       {
         if (!FrameErrTripped)
         {
-          SmUtils.LogMessage(
-            $" in SMAddon.Update (repeating error).  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-            SmUtils.LogType.Error, true);
+          Log.error(ex, "in SMAddon.Update (repeating error)");
           FrameErrTripped = true;
         }
       }
@@ -369,7 +367,7 @@ namespace ShipManifest
     // save settings on scene changes
     private void OnGameSceneLoadRequested(GameScenes requestedScene)
     {
-      //Debug.Log("[ShipManifest]:  SMAddon.OnGameSceneLoadRequested");
+      Log.dbg("SMAddon.OnGameSceneLoadRequested");
       SMSettings.SaveSettings();
       if (InstalledMods.IsDfInstalled)
         SceneChangeInitDfWrapper = true;
@@ -389,13 +387,13 @@ namespace ShipManifest
     // SM UI toggle handlers
     private void OnShowUi()
     {
-      //Debug.Log("[ShipManifest]:  SMAddon.OnShowUI");
+      Log.dbg("SMAddon.OnShowUI");
       ShowUi = true;
     }
 
     private void OnHideUi()
     {
-      //Debug.Log("[ShipManifest]:  SMAddon.OnHideUI");
+      Log.dbg("SMAddon.OnHideUI");
       ShowUi = false;
     }
 
@@ -519,7 +517,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.OnVesselWasModified.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.OnVesselWasModified");
       }
     }
 
@@ -534,9 +532,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in SMAddon.OnVesselChange.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error,
-          true);
+        Log.error(ex, "in SMAddon.OnVesselChange");
       }
     }
 
@@ -550,7 +546,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.OnVesselLoaded.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.OnVesselLoaded");
       }
     }
 
@@ -672,13 +668,13 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.OnGUIAppLauncherReady.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.OnGUIAppLauncherReady");
       }
     }
 
     private void OnGuiAppLauncherDestroyed()
     {
-      //Debug.Log("[ShipManifest]:  ShipManifestAddon.OnGUIAppLauncherDestroyed");
+      Log.dbg("ShipManifestAddon.OnGUIAppLauncherDestroyed");
       try
       {
         if (_smButtonStock != null)
@@ -697,17 +693,17 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.OnGUIAppLauncherDestroyed.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.OnGUIAppLauncherDestroyed");
       }
     }
 
     //Toolbar button click handlers
     internal static void OnSmButtonClicked()
     {
-      //Debug.Log("[ShipManifest]:  ShipManifestAddon.OnSMButtonToggle Enter");
+      Log.dbg("ShipManifestAddon.OnSMButtonToggle Enter");
       try
       {
-        //Debug.Log("[ShipManifest]:  ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
+        Log.dbg("ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
         if (WindowManifest.ShowWindow)
         {
           // SM is showing.  Turn off.
@@ -725,13 +721,13 @@ namespace ShipManifest
         else
         {
           // SM is not showing. turn on if we can.
-          //Debug.Log("[ShipManifest]:  CanShowShipManifest:  " + SMConditions.CanShowShipManifest(true));
+          Log.dbg("CanShowShipManifest:  " + SMConditions.CanShowShipManifest(true));
           if (SMConditions.CanShowShipManifest(true))
             WindowManifest.ShowWindow = !WindowManifest.ShowWindow;
           else
             return;
         }
-        //Debug.Log("[ShipManifest]:  ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
+        Log.dbg("ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
 
         if (SMSettings.EnableBlizzyToolbar)
           _smButtonBlizzy.TexturePath = WindowManifest.ShowWindow
@@ -744,15 +740,15 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.OnSMButtonToggle.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.OnSMButtonToggle");
       }
-      //Debug.Log("[ShipManifest]:  ShipManifestAddon.OnSMButtonToggle Exit");
-      //Debug.Log("[ShipManifest]:  ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
+      Log.dbg("ShipManifestAddon.OnSMButtonToggle Exit");
+      Log.dbg("ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
     }
 
     internal static void OnSmRosterClicked()
     {
-      //Debug.Log("[ShipManifest]:  SMAddon.OnSMRosterToggle");
+      Log.dbg("SMAddon.OnSMRosterToggle");
       try
       {
         if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
@@ -771,13 +767,13 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.OnSMRosterToggle.{ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.OnSMRosterToggle");
       }
     }
 
     internal static void OnSmSettingsClicked()
     {
-      //Debug.Log($"[ShipManifest]:  SMAddon.OnSMRosterToggle. Val:  {WindowSettings.ShowWindow}");
+      Log.dbg("SMAddon.OnSMRosterToggle. Val:  {0}", WindowSettings.ShowWindow);
       try
       {
         if (HighLogic.LoadedScene != GameScenes.SPACECENTER) return;
@@ -794,7 +790,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.OnSMSettingsToggle.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.OnSMSettingsToggle");
       }
     }
 
@@ -878,7 +874,7 @@ namespace ShipManifest
       {
         if (!FrameErrTripped)
         {
-          SmUtils.LogMessage($" in Display at or near step:  {step}.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+          Log.error(ex, "in Display at or near step:  {0}", step);
           FrameErrTripped = true;
         }
       }
@@ -952,7 +948,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($"Error in:  SMAddon.UpdateSMcontroller.  {ex}", SmUtils.LogType.Error, true);
+        Log.error(ex, "Error in:  SMAddon.UpdateSMcontroller");
       }
     }
 
@@ -995,8 +991,7 @@ namespace ShipManifest
         }
         catch (Exception ex)
         {
-          SmUtils.LogMessage(
-            $" in UpdateCLSSpaces.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+          Log.error(ex, "in UpdateCLSSpaces");
         }
       }
     }
@@ -1015,8 +1010,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage(
-          $" in SMAddon.GetCLSVessel.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}", SmUtils.LogType.Error, true);
+        Log.error(ex, "in SMAddon.GetCLSVessel");
         return false;
       }
     }
@@ -1107,8 +1101,7 @@ namespace ShipManifest
       }
       catch (Exception ex)
       {
-        SmUtils.LogMessage($" in SMAddon.RunSave.  Error:  {ex.Message} \r\n\r\n{ex.StackTrace}",
-          SmUtils.LogType.Error, true);
+        Log.error(ex, "in SMAddon.RunSave");
       }
     }
 
