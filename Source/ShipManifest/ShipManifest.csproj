@@ -109,6 +109,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ModuleManagerSupport.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="Assets.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Version.tt">
