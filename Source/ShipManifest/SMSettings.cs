@@ -11,6 +11,7 @@ using ShipManifest.Windows.Tabs.Control;
 using ShipManifest.Windows.Tabs.Settings;
 
 using GDB = KSPe.GameDB.Asset<ShipManifest.Startup>;
+using Data = KSPe.IO.Data<ShipManifest.Startup>;
 
 namespace ShipManifest
 {
@@ -24,11 +25,6 @@ namespace ShipManifest
     internal static Dictionary<string, Color> Colors;
 
     internal static ConfigNode Settings;
-
-    private static readonly string SettingsPath =
-      $"{KSPUtil.ApplicationRootPath}GameData/ShipManifest/Plugins/PluginData";
-
-    private static readonly string SettingsFile = $"{SettingsPath}/SMSettings.dat";
 
     // This value is assigned from AssemblyInfo.cs
     internal static string CurVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -205,24 +201,28 @@ namespace ShipManifest
 
     // Internal properties for plugin management.  Not persisted, not user managed.
 
-    internal static string DebugLogPath = @"Plugins\PluginData\";
     internal static bool ClsInstalled = false;
 
     #endregion
 
     #region Methods
 
+    private static readonly Data.ConfigNode data = Data.ConfigNode.For("smSettings");
     internal static ConfigNode LoadSettingsFile()
     {
-      return Settings ?? (Settings = ConfigNode.Load(SettingsFile) ?? new ConfigNode());
+      if (!data.IsLoadable)
+      {
+        data.Clear();
+        data.Save();
+      }
+      return Settings = data.Load().Node; // Now it's loadable.
     }
 
     internal static void LoadSettings()
     {
       LoadColors();
 
-      if (Settings == null) LoadSettingsFile();
-      if (Settings != null)
+      Settings = Settings ?? LoadSettingsFile();
       {
         ConfigNode windowsNode = Settings.HasNode("SM_Windows")
           ? Settings.GetNode("SM_Windows")
@@ -437,9 +437,6 @@ namespace ShipManifest
         AutoDebug = configNode.HasValue("AutoDebug") 
           ? bool.Parse(configNode.GetValue("AutoDebug")) 
           : AutoDebug;
-        DebugLogPath = configNode.HasValue("DebugLogPath") 
-          ? configNode.GetValue("DebugLogPath") 
-          : DebugLogPath;
         ErrorLogLength = configNode.HasValue("ErrorLogLength")
           ? configNode.GetValue("ErrorLogLength")
           : ErrorLogLength;
@@ -498,8 +495,7 @@ namespace ShipManifest
         if (SMSound.SoundSettingsChanged()) SMSound.LoadSounds();
 
         MemStoreTempSettings();
-        if (Settings == null)
-          Settings = LoadSettingsFile();
+        Settings = Settings ?? LoadSettingsFile();
 
         ConfigNode windowsNode = Settings.HasNode("SM_Windows")
           ? Settings.GetNode("SM_Windows")
@@ -597,7 +593,6 @@ namespace ShipManifest
         WriteValue(configNode, "AutoSave", AutoSave);
         WriteValue(configNode, "SaveIntervalSec", SaveIntervalSec);
         WriteValue(configNode, "AutoDebug", AutoDebug);
-        WriteValue(configNode, "DebugLogPath", DebugLogPath);
         WriteValue(configNode, "ErrorLogLength", ErrorLogLength);
         WriteValue(configNode, "SaveLogOnExit", SaveLogOnExit);
         WriteValue(configNode, "UseUnityStyle", UseUnityStyle);
@@ -611,9 +606,7 @@ namespace ShipManifest
         WriteValue(hiddenNode, "CrewXferDelaySec", CrewXferDelaySec);
         WriteValue(hiddenNode, "IvaUpdateFrameDelay", IvaUpdateFrameDelay);
 
-        if (!Directory.Exists(SettingsPath))
-          Directory.CreateDirectory(SettingsPath);
-        Settings.Save(SettingsFile);
+        data.Save();
       }
     }
 
