@@ -3,9 +3,7 @@ using KSPe.Util.Log;
 using System.Diagnostics;
 using System.Globalization;
 
-#if DEBUG
 using System.Collections.Generic;
-#endif
 
 namespace ShipManifest
 {
