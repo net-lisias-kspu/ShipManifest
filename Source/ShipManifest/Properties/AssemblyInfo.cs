@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ShipManifest")]
 [assembly: AssemblyDescription("Ship Manifest Manages your vessel")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("PapaJoe's SOUP")]
-[assembly: AssemblyProduct("ShipManifest")]
-[assembly: AssemblyCopyright("Copyright ©  2013-2020")]
+[assembly: AssemblyCompany(ShipManifest.LegalMamboJambo.Company)]
+[assembly: AssemblyProduct(ShipManifest.LegalMamboJambo.Product)]
+[assembly: AssemblyCopyright(ShipManifest.LegalMamboJambo.Copyright)]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -35,5 +35,6 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("6.0.2.0")]
-//[assembly: AssemblyFileVersion("5.2.1.0")]
+[assembly: AssemblyVersion(ShipManifest.Version.Number)]
+[assembly: AssemblyFileVersion(ShipManifest.Version.Number)]
+[assembly: KSPAssembly("ShipManifest", ShipManifest.Version.major, ShipManifest.Version.minor)]
