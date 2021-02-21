@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ConnectedLivingSpace;
+
+using UnityEngine;
+
 using KSP.UI.Screens;
+
+using ConnectedLivingSpace;
 using ShipManifest.APIClients;
 using ShipManifest.InternalObjects;
 using ShipManifest.Process;
 using ShipManifest.Windows;
-using UnityEngine;
 
 namespace ShipManifest
 {
@@ -29,7 +32,6 @@ namespace ShipManifest
     internal static ICLSAddon ClsAddon;
     internal static bool OrigClsAllowCrewXferSetting;
 
-    internal static string TextureFolder = "ShipManifest/Textures/";
     internal static string SaveMessage = string.Empty;
     internal static PartItemTransfer StockTransferItem;
 
@@ -607,7 +609,6 @@ namespace ShipManifest
         // Setup SM Window button
         if (HighLogic.LoadedSceneIsFlight && _smButtonStock == null && !SMSettings.EnableBlizzyToolbar)
         {
-          string iconfile = "IconOff_128";
           _smButtonStock = ApplicationLauncher.Instance.AddModApplication(
             OnSmButtonClicked,
             OnSmButtonClicked,
@@ -616,19 +617,19 @@ namespace ShipManifest
             DummyHandler,
             DummyHandler,
             ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW,
-            GameDatabase.Instance.GetTexture(TextureFolder + iconfile, false));
+            Assets.Textures.IconOff_128
+            );
 
           if (WindowManifest.ShowWindow)
             _smButtonStock.SetTexture(
-              GameDatabase.Instance.GetTexture(
-                WindowManifest.ShowWindow ? $"{TextureFolder}IconOn_128" : $"{TextureFolder}IconOff_128", false));
+                WindowManifest.ShowWindow ? Assets.Textures.IconOn_128 : Assets.Textures.IconOff_128
+            );
         }
 
         // Setup Settings Button
         if (HighLogic.LoadedScene == GameScenes.SPACECENTER && _smSettingsStock == null &&
             !SMSettings.EnableBlizzyToolbar)
         {
-          string iconfile = "IconS_Off_128";
           _smSettingsStock = ApplicationLauncher.Instance.AddModApplication(
             OnSmSettingsClicked,
             OnSmSettingsClicked,
@@ -637,19 +638,19 @@ namespace ShipManifest
             DummyHandler,
             DummyHandler,
             ApplicationLauncher.AppScenes.SPACECENTER,
-            GameDatabase.Instance.GetTexture(TextureFolder + iconfile, false));
+            Assets.Textures.IconS_Off_128
+            );
 
           if (WindowSettings.ShowWindow)
-            _smSettingsStock.SetTexture(
-              GameDatabase.Instance.GetTexture(
-                WindowSettings.ShowWindow ? $"{TextureFolder}IconS_On_128" : $"{TextureFolder}IconS_Off_128", false));
+            _smButtonStock.SetTexture(
+                WindowManifest.ShowWindow ? Assets.Textures.IconS_On_128 : Assets.Textures.IconS_Off_128
+            );
         }
 
         // Setup Roster Button
         if (HighLogic.LoadedScene != GameScenes.SPACECENTER || _smRosterStock != null || SMSettings.EnableBlizzyToolbar)
           return;
         {
-          string iconfile = "IconR_Off_128";
           _smRosterStock = ApplicationLauncher.Instance.AddModApplication(
             OnSmRosterClicked,
             OnSmRosterClicked,
@@ -658,12 +659,13 @@ namespace ShipManifest
             DummyHandler,
             DummyHandler,
             ApplicationLauncher.AppScenes.SPACECENTER,
-            GameDatabase.Instance.GetTexture(TextureFolder + iconfile, false));
+            Assets.Textures.IconR_Off_128
+            );
 
           if (WindowRoster.ShowWindow)
             _smRosterStock.SetTexture(
-              GameDatabase.Instance.GetTexture(
-                WindowRoster.ShowWindow ? $"{TextureFolder}IconR_On_128" : $"{ TextureFolder}IconR_Off_128", false));
+                WindowManifest.ShowWindow ? Assets.Textures.IconR_On_128 : Assets.Textures.IconR_Off_128
+            );
         }
       }
       catch (Exception ex)
@@ -731,12 +733,12 @@ namespace ShipManifest
 
         if (SMSettings.EnableBlizzyToolbar)
           _smButtonBlizzy.TexturePath = WindowManifest.ShowWindow
-            ? $"{TextureFolder}IconOn_24"
-            : $"{TextureFolder}IconOff_24";
+            ? Assets.Textures.IconOn_24
+            : Assets.Textures.IconOff_24;
         else
           _smButtonStock.SetTexture(
-            GameDatabase.Instance.GetTexture(
-              WindowManifest.ShowWindow ? $"{TextureFolder}IconOn_128" : $"{TextureFolder}IconOff_128", false));
+            WindowManifest.ShowWindow ? Assets.Textures.IconOn_128 : Assets.Textures.IconOff_128
+          );
       }
       catch (Exception ex)
       {
@@ -756,12 +758,12 @@ namespace ShipManifest
           WindowRoster.ShowWindow = !WindowRoster.ShowWindow;
           if (SMSettings.EnableBlizzyToolbar)
             _smRosterBlizzy.TexturePath = WindowRoster.ShowWindow
-              ? $"{TextureFolder}IconR_On_24"
-              : $"{TextureFolder}IconR_Off_24";
+              ? Assets.Textures.IconR_On_24
+              : Assets.Textures.IconR_Off_24;
           else
             _smRosterStock.SetTexture(
-              GameDatabase.Instance.GetTexture(
-                WindowRoster.ShowWindow ? $"{TextureFolder}IconR_On_128" : $"{ TextureFolder}IconR_Off_128", false));
+              WindowManifest.ShowWindow ? Assets.Textures.IconR_On_128 : Assets.Textures.IconR_Off_128
+            );
           if (WindowRoster.ShowWindow) WindowRoster.GetRosterList();
         }
       }
@@ -781,12 +783,12 @@ namespace ShipManifest
         SMSettings.MemStoreTempSettings();
         if (SMSettings.EnableBlizzyToolbar)
           _smSettingsBlizzy.TexturePath = WindowSettings.ShowWindow
-            ? $"{TextureFolder}IconS_On_24"
-            : $"{TextureFolder}IconS_Off_24";
+            ? Assets.Textures.IconS_On_24
+            : Assets.Textures.IconS_Off_24;
         else
           _smSettingsStock.SetTexture(
-            GameDatabase.Instance.GetTexture(
-              WindowSettings.ShowWindow ? $"{TextureFolder}IconS_On_128" : $"{ TextureFolder}IconS_Off_128", false));
+            WindowManifest.ShowWindow ? Assets.Textures.IconS_On_128 : Assets.Textures.IconS_Off_128
+          );  
       }
       catch (Exception ex)
       {
@@ -1025,8 +1027,8 @@ namespace ShipManifest
         {
           _smButtonBlizzy = ToolbarManager.Instance.add("ShipManifest", "Manifest");
           _smButtonBlizzy.TexturePath = WindowManifest.ShowWindow
-            ? $"{TextureFolder}IconOn_24"
-            : $"{TextureFolder}IconOff_24";
+            ? Assets.Textures.IconOn_24
+            : Assets.Textures.IconOff_24;
           _smButtonBlizzy.ToolTip = "Ship Manifest";
           _smButtonBlizzy.Visibility = new GameScenesVisibility(GameScenes.FLIGHT);
           _smButtonBlizzy.Visible = true;
@@ -1036,8 +1038,8 @@ namespace ShipManifest
         {
           _smSettingsBlizzy = ToolbarManager.Instance.add("ShipManifest", "Settings");
           _smSettingsBlizzy.TexturePath = WindowSettings.ShowWindow
-            ? $"{TextureFolder}IconS_On_24"
-            : $"{TextureFolder}IconS_Off_24";
+            ? Assets.Textures.IconS_On_24
+            : Assets.Textures.IconS_Off_24;
           _smSettingsBlizzy.ToolTip = "Ship Manifest Settings Window";
           _smSettingsBlizzy.Visibility = new GameScenesVisibility(GameScenes.SPACECENTER);
           _smSettingsBlizzy.Visible = true;
@@ -1045,8 +1047,8 @@ namespace ShipManifest
 
           _smRosterBlizzy = ToolbarManager.Instance.add("ShipManifest", "Roster");
           _smRosterBlizzy.TexturePath = WindowRoster.ShowWindow
-            ? $"{TextureFolder}IconR_On_24"
-            : $"{TextureFolder}IconR_Off_24";
+            ? Assets.Textures.IconR_On_24
+            : Assets.Textures.IconR_Off_24;
           _smRosterBlizzy.ToolTip = "Ship Manifest Roster Window";
           _smRosterBlizzy.Visibility = new GameScenesVisibility(GameScenes.SPACECENTER);
           _smRosterBlizzy.Visible = true;
