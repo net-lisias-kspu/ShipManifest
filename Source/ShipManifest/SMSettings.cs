@@ -2,11 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+
+using UnityEngine;
+
 using ShipManifest.InternalObjects;
 using ShipManifest.Windows;
 using ShipManifest.Windows.Tabs.Control;
 using ShipManifest.Windows.Tabs.Settings;
-using UnityEngine;
+
+using GDB = KSPe.GameDB.Asset<ShipManifest.Startup>;
 
 namespace ShipManifest
 {
@@ -95,14 +99,14 @@ namespace ShipManifest
     // Minion like kerbal sounds...
     // http://www.freesound.org/people/yummie/sounds/
 
-    internal static string PumpSoundStart = "ShipManifest/Sounds/59328-1";
-    internal static string PumpSoundRun = "ShipManifest/Sounds/59328-2";
-    internal static string PumpSoundStop = "ShipManifest/Sounds/59328-3";
+    internal static string PumpSoundStart = GDB.Solve("Sounds", "59328-1");
+    internal static string PumpSoundRun = GDB.Solve("Sounds", "59328-2");
+    internal static string PumpSoundStop = GDB.Solve("Sounds", "59328-3");
     internal static double PumpSoundVol = 1; // Range = 0...1
 
-    internal static string CrewSoundStart = "ShipManifest/Sounds/14214-1";
-    internal static string CrewSoundRun = "ShipManifest/Sounds/14214-2";
-    internal static string CrewSoundStop = "ShipManifest/Sounds/14214-3";
+    internal static string CrewSoundStart = GDB.Solve("Sounds", "14214-1");
+    internal static string CrewSoundRun = GDB.Solve("Sounds", "14214-2");
+    internal static string CrewSoundStop = GDB.Solve("Sounds", "14214-3");
     internal static double CrewSoundVol = 1; // Range = 0...1
 
 
