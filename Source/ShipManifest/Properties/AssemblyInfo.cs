@@ -38,3 +38,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion(ShipManifest.Version.Number)]
 [assembly: AssemblyFileVersion(ShipManifest.Version.Number)]
 [assembly: KSPAssembly("ShipManifest", ShipManifest.Version.major, ShipManifest.Version.minor)]
+
+[assembly: KSPAssemblyDependency("KSPe", 2, 2)]
+[assembly: KSPAssemblyDependency("KSPe.UI", 2, 2)]
