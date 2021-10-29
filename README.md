@@ -1,8 +1,8 @@
-# ShipManifest /L Unofficial
+# ShipManifest /L Unleashed
 
 Manages Crew, Resources, Science, and controls some part actions on a given vessel on Kerbal Space Program.
 
-Unofficial fork by Lisias.
+[Unleashed](https://ksp.lisias.net/add-ons-unleashed/) fork by Lisias.
 
 
 ## In a Hurry

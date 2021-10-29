@@ -1,4 +1,4 @@
-# ShipManifest :: Changes
+# ShipManifest /L Unleashed :: Changes
 
 * 2021-0306: 6.0.2.2 (LisiasT) for KSP >= 1.7.1
 	+ Backporting the thing to every KSP since 1.7.1

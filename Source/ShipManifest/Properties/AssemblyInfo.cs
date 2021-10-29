@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("ShipManifest")]
+[assembly: AssemblyTitle("Ship Manifest /L Unleashed")]
 [assembly: AssemblyDescription("Ship Manifest Manages your vessel")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany(ShipManifest.LegalMamboJambo.Company)]
 [assembly: AssemblyProduct(ShipManifest.LegalMamboJambo.Product)]
 [assembly: AssemblyCopyright(ShipManifest.LegalMamboJambo.Copyright)]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark(ShipManifest.LegalMamboJambo.Trademark)]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
