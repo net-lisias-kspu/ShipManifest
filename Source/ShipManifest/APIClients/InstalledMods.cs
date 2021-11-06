@@ -17,7 +17,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+
 using UnityEngine;
+
+using Finder = KSPe.Util.SystemTools.Assembly.Finder;
 
 namespace ShipManifest.APIClients
 {
@@ -29,15 +32,15 @@ namespace ShipManifest.APIClients
 
     internal static bool IsDfApiReady => DfWrapper.ApiReady;
 
-    internal static bool IsDfInstalled => IsModInstalled("DeepFreeze");
+    internal static bool IsDfInstalled => Finder.ExistsByName("DeepFreeze");
 
-    internal static bool IsRtInstalled => IsModInstalled("RemoteTech");
+    internal static bool IsRtInstalled => Finder.ExistsByName("RemoteTech");
 
-    internal static bool IsSmInstalled => IsModInstalled("ShipManifest");
+    internal static bool IsSmInstalled => Finder.ExistsByName("ShipManifest");
 
-    internal static bool IsKisInstalled => IsModInstalled("KIS");
+    internal static bool IsKisInstalled => Finder.ExistsByName("KIS");
 
-    internal static bool IsClsInstalled => IsModInstalled("ConnectedLivingSpace");
+    internal static bool IsClsInstalled => Finder.ExistsByName("ConnectedLivingSpace");
 
     // Methods
     internal static void DisplayAssemblyList()
@@ -74,19 +77,5 @@ namespace ShipManifest.APIClients
       list.Dispose();
     }
 
-    internal static bool IsModInstalled(string assemblyName)
-    {
-      try
-      {
-        Assembly assembly = (from a in Assemblies
-          where a.FullName.Split(',')[0] == assemblyName
-          select a).First();
-        return assembly != null;
-      }
-      catch
-      {
-        return false;
-      }
-    }
   }
 }
