@@ -14,11 +14,15 @@
 
 */
 using System;
+using UnityEngine;
+
+using GUI = KSPe.UI.GUI;
+using GUILayout = KSPe.UI.GUILayout;
+
 using System.Collections.Generic;
 using ShipManifest.APIClients;
 using ShipManifest.InternalObjects;
 using ShipManifest.Modules;
-using UnityEngine;
 
 namespace ShipManifest.Windows.Tabs.Control
 {

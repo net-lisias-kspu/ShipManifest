@@ -17,9 +17,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+
+using UnityEngine;
+
+using GUI = KSPe.UI.GUI;
+using GUILayout = KSPe.UI.GUILayout;
+
 using ShipManifest.InternalObjects;
 using ShipManifest.Process;
-using UnityEngine;
 
 namespace ShipManifest.Windows
 {

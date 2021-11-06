@@ -14,9 +14,13 @@
 
 */
 using System;
+using UnityEngine;
+
+using GUI = KSPe.UI.GUI;
+using GUILayout = KSPe.UI.GUILayout;
+
 using ShipManifest.InternalObjects;
 using ShipManifest.Windows.Tabs.Settings;
-using UnityEngine;
 
 namespace ShipManifest.Windows
 {

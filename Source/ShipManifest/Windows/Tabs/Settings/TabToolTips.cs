@@ -13,9 +13,13 @@
 	warranty of	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 */
+using UnityEngine;
+
+using GUI = KSPe.UI.GUI;
+using GUILayout = KSPe.UI.GUILayout;
+
 using ShipManifest.InternalObjects;
 using ShipManifest.Windows.Tabs.Control;
-using UnityEngine;
 
 namespace ShipManifest.Windows.Tabs.Settings
 {
