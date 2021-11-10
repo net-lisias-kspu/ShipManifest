@@ -14,6 +14,7 @@
 
 */
 using System;
+using System.Collections.Generic;
 using UniLinq;
 
 using UnityEngine;
@@ -21,7 +22,6 @@ using UnityEngine;
 using GUI = KSPe.UI.GUI;
 using GUILayout = KSPe.UI.GUILayout;
 
-using System.Collections.Generic;
 using ShipManifest.InternalObjects;
 using ShipManifest.Modules;
 

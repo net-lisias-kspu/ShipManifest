@@ -21,6 +21,8 @@ using System.Reflection;
 using UnityEngine;
 
 using Finder = KSPe.Util.SystemTools.Assembly.Finder;
+using GUI = KSPe.UI.GUI;
+using GUILayout = KSPe.UI.GUILayout;
 
 namespace ShipManifest.APIClients
 {
