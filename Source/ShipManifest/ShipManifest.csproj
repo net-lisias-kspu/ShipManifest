@@ -71,7 +71,6 @@
     <Compile Include="Modules\ModSolarPanel.cs" />
     <Compile Include="Process\TransferPump.cs" />
     <Compile Include="InternalObjects\SMHighlighter.cs" />
-    <Compile Include="APIClients\ToolbarWrapper.cs" />
     <Compile Include="Windows\Tabs\Control\TabAntenna.cs" />
     <Compile Include="Windows\Tabs\Control\TabVessels.cs" />
     <Compile Include="Windows\Tabs\Settings\TabConfig.cs" />
@@ -110,6 +109,7 @@
     <Compile Include="ModuleManagerSupport.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Assets.cs" />
+    <Compile Include="APIClients\ToolbarSupport.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Version.tt">

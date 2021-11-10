@@ -56,14 +56,7 @@ namespace ShipManifest.Windows.Tabs.Settings
       GUILayout.Label("____________________________________________________________________________________________",
         SMStyle.LabelStyleHardRule, GUILayout.Height(10), GUILayout.Width(guiRuleWidth));
 
-      if (!ToolbarManager.ToolbarAvailable)
-      {
-        if (SMSettings.EnableBlizzyToolbar)
-          SMSettings.EnableBlizzyToolbar = false;
-        GUI.enabled = false;
-      }
-      else
-        GUI.enabled = true;
+      GUI.enabled = true;
 
       //_label = "Enable Blizzy Toolbar (Replaces Stock Toolbar)";
       //_toolTip = "Switches the toolbar Icons over to Blizzy's toolbar, if installed.";

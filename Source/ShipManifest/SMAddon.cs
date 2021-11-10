@@ -61,12 +61,9 @@ namespace ShipManifest
     internal static TransferPump.TypeXfer ActiveXferType = TransferPump.TypeXfer.SourceToTarget;
 
     // Toolbar Integration.
-    private static IButton _smButtonBlizzy;
-    private static IButton _smSettingsBlizzy;
-    private static IButton _smRosterBlizzy;
-    private static ApplicationLauncherButton _smButtonStock;
-    private static ApplicationLauncherButton _smSettingsStock;
-    private static ApplicationLauncherButton _smRosterStock;
+    private static Toolbar.Button _smButtonStock;
+    private static Toolbar.Button _smSettingsStock;
+    private static Toolbar.Button _smRosterStock;
 
     // Repeating error latch
     internal static bool FrameErrTripped;
@@ -245,7 +242,7 @@ namespace ShipManifest
         CancelInvoke("RunSave");
 
         // Handle Toolbars
-        DestroyAppIcons();
+        ToolbarController.Instance.Destroy();
 
         //Reset Roster Window data
         WindowRoster.OnCreate = false;
@@ -261,56 +258,8 @@ namespace ShipManifest
 
     internal void CreateAppIcons()
     {
-      if (SMSettings.EnableBlizzyToolbar)
-      {
-        // Let't try to use Blizzy's toolbar
-        if (ActivateBlizzyToolBar()) return;
-        // We failed to activate the toolbar, so revert to stock
-        GameEvents.onGUIApplicationLauncherReady.Add(OnGuiAppLauncherReady);
-        GameEvents.onGUIApplicationLauncherDestroyed.Add(OnGuiAppLauncherDestroyed);
-      }
-      else
-      {
-        // Use stock Toolbar
-        GameEvents.onGUIApplicationLauncherReady.Add(OnGuiAppLauncherReady);
-        GameEvents.onGUIApplicationLauncherDestroyed.Add(OnGuiAppLauncherDestroyed);
-      }
-    }
-
-    internal void DestroyAppIcons()
-    {
-      if (_smRosterBlizzy == null && _smSettingsBlizzy == null && _smButtonBlizzy == null)
-      {
-        if (_smButtonStock != null)
-        {
-          ApplicationLauncher.Instance.RemoveModApplication(_smButtonStock);
-          _smButtonStock = null;
-        }
-        if (_smSettingsStock != null)
-        {
-          ApplicationLauncher.Instance.RemoveModApplication(_smSettingsStock);
-          _smSettingsStock = null;
-        }
-        if (_smRosterStock != null)
-        {
-          ApplicationLauncher.Instance.RemoveModApplication(_smRosterStock);
-          _smRosterStock = null;
-        }
-        if (_smButtonStock == null && _smSettingsStock == null && _smRosterStock == null)
-        {
-          // Remove the stock toolbar button launcher handler
-          GameEvents.onGUIApplicationLauncherReady.Remove(OnGuiAppLauncherReady);
-        }
-      }
-      else
-      {
-        if (_smButtonBlizzy != null)
-          _smButtonBlizzy.Destroy();
-        if (_smRosterBlizzy != null)
-          _smRosterBlizzy.Destroy();
-        if (_smSettingsBlizzy != null)
-          _smSettingsBlizzy.Destroy();
-      }
+      GameEvents.onGUIApplicationLauncherReady.Add(OnGuiAppLauncherReady);
+      GameEvents.onGUIApplicationLauncherDestroyed.Add(OnGuiAppLauncherDestroyed);
     }
 
     // ReSharper disable once InconsistentNaming
@@ -402,7 +351,7 @@ namespace ShipManifest
 
       // Since the changes to Startup options, ON destroy is not being called when a Scene change occurs.  Startup is being called when the proper scene is loaded.
       // Let's do some cleanup of the app Icons here as well. to be sure we have only the icons we want...
-      DestroyAppIcons();
+      ToolbarController.Instance.Destroy();
     }
 
     // SM UI toggle handlers
@@ -579,45 +528,9 @@ namespace ShipManifest
     // Stock vs Blizzy Toolbar switch handler
     private void CheckForToolbarTypeToggle()
     {
-      if (SMSettings.EnableBlizzyToolbar && !SMSettings.PrevEnableBlizzyToolbar)
-      {
-        // Let't try to use Blizzy's toolbar
-        if (!ActivateBlizzyToolBar())
-        {
-          // We failed to activate the toolbar, so revert to stock
-          GameEvents.onGUIApplicationLauncherReady.Add(OnGuiAppLauncherReady);
-          GameEvents.onGUIApplicationLauncherDestroyed.Add(OnGuiAppLauncherDestroyed);
-
-          SMSettings.EnableBlizzyToolbar = SMSettings.PrevEnableBlizzyToolbar;
-        }
-        else
-        {
-          OnGuiAppLauncherDestroyed();
-          GameEvents.onGUIApplicationLauncherReady.Remove(OnGuiAppLauncherReady);
-          GameEvents.onGUIApplicationLauncherDestroyed.Remove(OnGuiAppLauncherDestroyed);
-          SMSettings.PrevEnableBlizzyToolbar = SMSettings.EnableBlizzyToolbar;
-          if (HighLogic.LoadedSceneIsFlight)
-            _smButtonBlizzy.Visible = true;
-          if (HighLogic.LoadedScene != GameScenes.SPACECENTER) return;
-          _smRosterBlizzy.Visible = true;
-          _smSettingsBlizzy.Visible = true;
-        }
-      }
-      else if (!SMSettings.EnableBlizzyToolbar && SMSettings.PrevEnableBlizzyToolbar)
-      {
-        // Use stock Toolbar
-        if (HighLogic.LoadedSceneIsFlight)
-          _smButtonBlizzy.Visible = false;
-        if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
-        {
-          _smRosterBlizzy.Visible = false;
-          _smSettingsBlizzy.Visible = false;
-        }
-        GameEvents.onGUIApplicationLauncherReady.Add(OnGuiAppLauncherReady);
-        GameEvents.onGUIApplicationLauncherDestroyed.Add(OnGuiAppLauncherDestroyed);
-        OnGuiAppLauncherReady();
-        SMSettings.PrevEnableBlizzyToolbar = SMSettings.EnableBlizzyToolbar;
-      }
+      if (SMSettings.EnableBlizzyToolbar == SMSettings.PrevEnableBlizzyToolbar) return;
+      SMSettings.PrevEnableBlizzyToolbar = SMSettings.EnableBlizzyToolbar;
+      ToolbarController.Instance.ButtonsActive(!SMSettings.EnableBlizzyToolbar, SMSettings.EnableBlizzyToolbar);
     }
 
     // Stock Toolbar Startup and cleanup
@@ -626,66 +539,59 @@ namespace ShipManifest
       try
       {
         // Setup SM Window button
-        if (HighLogic.LoadedSceneIsFlight && _smButtonStock == null && !SMSettings.EnableBlizzyToolbar)
+        if (HighLogic.LoadedSceneIsFlight && _smButtonStock == null)
         {
-          _smButtonStock = ApplicationLauncher.Instance.AddModApplication(
-            OnSmButtonClicked,
-            OnSmButtonClicked,
-            DummyHandler,
-            DummyHandler,
-            DummyHandler,
-            DummyHandler,
-            ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW,
-            Assets.Textures.IconOff_128
+          _smButtonStock = Toolbar.Button.Create(this
+              , ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW
+              , Assets.Textures.IconOff_128, Assets.Textures.IconOff_24
+              , Version.FriendlyName
             );
-
-          if (WindowManifest.ShowWindow)
-            _smButtonStock.SetTexture(
-                WindowManifest.ShowWindow ? Assets.Textures.IconOn_128 : Assets.Textures.IconOff_128
+          _smButtonStock.Add(Toolbar.Button.ToolbarEvents.Kind.Active
+              , Toolbar.State.Data.Create(Assets.Textures.IconOn_128, Assets.Textures.IconOn_24)
+              , Toolbar.State.Data.Create(Assets.Textures.IconOff_128, Assets.Textures.IconOff_24)
             );
+          _smButtonStock.Toolbar.Add(
+            Toolbar.Button.ToolbarEvents.Kind.Active
+            , new Toolbar.Button.Event(OnSmButtonClicked, OnSmButtonClicked));
+          ToolbarController.Instance.Add(_smButtonStock);
         }
 
         // Setup Settings Button
-        if (HighLogic.LoadedScene == GameScenes.SPACECENTER && _smSettingsStock == null &&
-            !SMSettings.EnableBlizzyToolbar)
+        if (HighLogic.LoadedScene == GameScenes.SPACECENTER && _smSettingsStock == null)
         {
-          _smSettingsStock = ApplicationLauncher.Instance.AddModApplication(
-            OnSmSettingsClicked,
-            OnSmSettingsClicked,
-            DummyHandler,
-            DummyHandler,
-            DummyHandler,
-            DummyHandler,
-            ApplicationLauncher.AppScenes.SPACECENTER,
-            Assets.Textures.IconS_Off_128
+          _smSettingsStock = Toolbar.Button.Create(this
+              , ApplicationLauncher.AppScenes.SPACECENTER
+              , Assets.Textures.IconS_Off_128, Assets.Textures.IconS_Off_24
+              , "Ship Manifest Settings Window"
             );
-
-          if (WindowSettings.ShowWindow)
-            _smButtonStock.SetTexture(
-                WindowManifest.ShowWindow ? Assets.Textures.IconS_On_128 : Assets.Textures.IconS_Off_128
+          _smSettingsStock.Add(Toolbar.Button.ToolbarEvents.Kind.Active
+              , Toolbar.State.Data.Create(Assets.Textures.IconS_On_128, Assets.Textures.IconS_On_24)
+              , Toolbar.State.Data.Create(Assets.Textures.IconS_Off_128, Assets.Textures.IconS_Off_24)
             );
+          _smSettingsStock.Toolbar.Add(
+            Toolbar.Button.ToolbarEvents.Kind.Active
+            , new Toolbar.Button.Event(OnSmSettingsClicked, OnSmSettingsClicked));
+          ToolbarController.Instance.Add(_smSettingsStock);
         }
 
         // Setup Roster Button
-        if (HighLogic.LoadedScene != GameScenes.SPACECENTER || _smRosterStock != null || SMSettings.EnableBlizzyToolbar)
-          return;
+        if (HighLogic.LoadedScene != GameScenes.SPACECENTER && _smRosterStock == null)
         {
-          _smRosterStock = ApplicationLauncher.Instance.AddModApplication(
-            OnSmRosterClicked,
-            OnSmRosterClicked,
-            DummyHandler,
-            DummyHandler,
-            DummyHandler,
-            DummyHandler,
-            ApplicationLauncher.AppScenes.SPACECENTER,
-            Assets.Textures.IconR_Off_128
+          _smRosterStock = Toolbar.Button.Create(this
+              , ApplicationLauncher.AppScenes.SPACECENTER
+              , Assets.Textures.IconR_Off_128, Assets.Textures.IconR_Off_24
+              , "Ship Manifest Roster Window"
             );
-
-          if (WindowRoster.ShowWindow)
-            _smRosterStock.SetTexture(
-                WindowManifest.ShowWindow ? Assets.Textures.IconR_On_128 : Assets.Textures.IconR_Off_128
+          _smRosterStock.Add(Toolbar.Button.ToolbarEvents.Kind.Active
+              , Toolbar.State.Data.Create(Assets.Textures.IconR_On_128, Assets.Textures.IconR_On_24)
+              , Toolbar.State.Data.Create(Assets.Textures.IconR_Off_128, Assets.Textures.IconR_Off_24)
             );
+          _smRosterStock.Toolbar.Add(
+            Toolbar.Button.ToolbarEvents.Kind.Active
+            , new Toolbar.Button.Event(OnSmRosterClicked, OnSmRosterClicked));
+          ToolbarController.Instance.Add(_smRosterStock);
         }
+        ToolbarController.Instance.ButtonsActive(!SMSettings.EnableBlizzyToolbar, SMSettings.EnableBlizzyToolbar);
       }
       catch (Exception ex)
       {
@@ -698,19 +604,7 @@ namespace ShipManifest
       Log.dbg("ShipManifestAddon.OnGUIAppLauncherDestroyed");
       try
       {
-        if (_smButtonStock != null)
-        {
-          ApplicationLauncher.Instance.RemoveModApplication(_smButtonStock);
-          _smButtonStock = null;
-        }
-        if (_smRosterStock != null)
-        {
-          ApplicationLauncher.Instance.RemoveModApplication(_smRosterStock);
-          _smRosterStock = null;
-        }
-        if (_smSettingsStock == null) return;
-        ApplicationLauncher.Instance.RemoveModApplication(_smSettingsStock);
-        _smSettingsStock = null;
+        ToolbarController.Instance.Destroy();
       }
       catch (Exception ex)
       {
@@ -749,15 +643,6 @@ namespace ShipManifest
             return;
         }
         Log.dbg("ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
-
-        if (SMSettings.EnableBlizzyToolbar)
-          _smButtonBlizzy.TexturePath = WindowManifest.ShowWindow
-            ? Assets.Textures.IconOn_24
-            : Assets.Textures.IconOff_24;
-        else
-          _smButtonStock.SetTexture(
-            WindowManifest.ShowWindow ? Assets.Textures.IconOn_128 : Assets.Textures.IconOff_128
-          );
       }
       catch (Exception ex)
       {
@@ -775,14 +660,6 @@ namespace ShipManifest
         if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
         {
           WindowRoster.ShowWindow = !WindowRoster.ShowWindow;
-          if (SMSettings.EnableBlizzyToolbar)
-            _smRosterBlizzy.TexturePath = WindowRoster.ShowWindow
-              ? Assets.Textures.IconR_On_24
-              : Assets.Textures.IconR_Off_24;
-          else
-            _smRosterStock.SetTexture(
-              WindowManifest.ShowWindow ? Assets.Textures.IconR_On_128 : Assets.Textures.IconR_Off_128
-            );
           if (WindowRoster.ShowWindow) WindowRoster.GetRosterList();
         }
       }
@@ -800,14 +677,6 @@ namespace ShipManifest
         if (HighLogic.LoadedScene != GameScenes.SPACECENTER) return;
         WindowSettings.ShowWindow = !WindowSettings.ShowWindow;
         SMSettings.MemStoreTempSettings();
-        if (SMSettings.EnableBlizzyToolbar)
-          _smSettingsBlizzy.TexturePath = WindowSettings.ShowWindow
-            ? Assets.Textures.IconS_On_24
-            : Assets.Textures.IconS_Off_24;
-        else
-          _smSettingsStock.SetTexture(
-            WindowManifest.ShowWindow ? Assets.Textures.IconS_On_128 : Assets.Textures.IconS_Off_128
-          );  
       }
       catch (Exception ex)
       {
@@ -1032,52 +901,6 @@ namespace ShipManifest
       catch (Exception ex)
       {
         Log.error(ex, "in SMAddon.GetCLSVessel");
-        return false;
-      }
-    }
-
-    internal static bool ActivateBlizzyToolBar()
-    {
-      if (!SMSettings.EnableBlizzyToolbar) return false;
-      if (!ToolbarManager.ToolbarAvailable) return false;
-      try
-      {
-        if (HighLogic.LoadedScene == GameScenes.FLIGHT)
-        {
-          _smButtonBlizzy = ToolbarManager.Instance.add("ShipManifest", "Manifest");
-          _smButtonBlizzy.TexturePath = WindowManifest.ShowWindow
-            ? Assets.Textures.IconOn_24
-            : Assets.Textures.IconOff_24;
-          _smButtonBlizzy.ToolTip = "Ship Manifest";
-          _smButtonBlizzy.Visibility = new GameScenesVisibility(GameScenes.FLIGHT);
-          _smButtonBlizzy.Visible = true;
-          _smButtonBlizzy.OnClick += e => { OnSmButtonClicked(); };
-        }
-        else if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
-        {
-          _smSettingsBlizzy = ToolbarManager.Instance.add("ShipManifest", "Settings");
-          _smSettingsBlizzy.TexturePath = WindowSettings.ShowWindow
-            ? Assets.Textures.IconS_On_24
-            : Assets.Textures.IconS_Off_24;
-          _smSettingsBlizzy.ToolTip = "Ship Manifest Settings Window";
-          _smSettingsBlizzy.Visibility = new GameScenesVisibility(GameScenes.SPACECENTER);
-          _smSettingsBlizzy.Visible = true;
-          _smSettingsBlizzy.OnClick += e => { OnSmSettingsClicked(); };
-
-          _smRosterBlizzy = ToolbarManager.Instance.add("ShipManifest", "Roster");
-          _smRosterBlizzy.TexturePath = WindowRoster.ShowWindow
-            ? Assets.Textures.IconR_On_24
-            : Assets.Textures.IconR_Off_24;
-          _smRosterBlizzy.ToolTip = "Ship Manifest Roster Window";
-          _smRosterBlizzy.Visibility = new GameScenesVisibility(GameScenes.SPACECENTER);
-          _smRosterBlizzy.Visible = true;
-          _smRosterBlizzy.OnClick += e => { OnSmRosterClicked(); };
-        }
-        return true;
-      }
-      catch (Exception)
-      {
-        // Blizzy Toolbar instantiation error.
         return false;
       }
     }
