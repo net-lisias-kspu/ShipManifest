@@ -47,11 +47,11 @@ namespace ShipManifest
     internal static bool SceneChangeInitDfWrapper;
     
     // current vessel's controller instance
-    internal static SMVessel SmVessel;
+    public static SMVessel SmVessel;
     internal static ICLSAddon ClsAddon;
     internal static bool OrigClsAllowCrewXferSetting;
 
-    internal static string SaveMessage = string.Empty;
+    public static string SaveMessage = string.Empty;
     internal static PartItemTransfer StockTransferItem;
 
     [KSPField(isPersistant = true)] internal static double Elapsed;
@@ -66,7 +66,7 @@ namespace ShipManifest
     private static Toolbar.Button _smRosterStock;
 
     // Repeating error latch
-    internal static bool FrameErrTripped;
+    public static bool FrameErrTripped;
 
     // SM UI toggle
     internal static bool ShowUi = true;
@@ -143,8 +143,12 @@ namespace ShipManifest
         if (FrameErrTripped) 
           FrameErrTripped = false;
 
-        if (WindowRoster.ResetRosterSize)
-          WindowRoster.Position.height = SMSettings.UseUnityStyle ? 330 : 350;
+        if (WindowRoster.Instance.ResetRosterSize)
+        {
+          Rect p = WindowRoster.Instance.Position; // Damn, ugly hack!
+          p.height = SMSettings.UseUnityStyle ? 330 : 350;
+          WindowRoster.Instance.Position = p;
+        }
 
         if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
         {
@@ -159,7 +163,7 @@ namespace ShipManifest
           }
           // reset any hacked kerbal names in game save from old version of SM/KSP
           if (SMSettings.EnableChangeProfession)
-            WindowRoster.ResetKerbalNames();
+            WindowRoster.Instance.ResetKerbalNames();
 
           SMSettings.SaveSettings();
           //RunSave();
@@ -245,9 +249,9 @@ namespace ShipManifest
         ToolbarController.Instance.Destroy();
 
         //Reset Roster Window data
-        WindowRoster.OnCreate = false;
-        WindowRoster.SelectedKerbal = null;
-        WindowRoster.ToolTip = "";
+        WindowRoster.Instance.OnCreate = false;
+        WindowRoster.Instance.SelectedKerbal = null;
+        WindowRoster.Instance.ToolTip = "";
         //WindowRoster.ShowWindow = false;
       }
       catch (Exception ex)
@@ -347,7 +351,7 @@ namespace ShipManifest
     {
       WindowControl.ShowWindow =
         WindowManifest.ShowWindow =
-          WindowTransfer.ShowWindow = WindowRoster.ShowWindow = WindowSettings.ShowWindow = false;
+          WindowTransfer.ShowWindow = WindowRoster.Instance.ShowWindow = WindowSettings.ShowWindow = false;
 
       // Since the changes to Startup options, ON destroy is not being called when a Scene change occurs.  Startup is being called when the proper scene is loaded.
       // Let's do some cleanup of the app Icons here as well. to be sure we have only the icons we want...
@@ -652,15 +656,15 @@ namespace ShipManifest
       Log.dbg("ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
     }
 
-    internal static void OnSmRosterClicked()
+    public static void OnSmRosterClicked()
     {
       Log.dbg("SMAddon.OnSMRosterToggle");
       try
       {
         if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
         {
-          WindowRoster.ShowWindow = !WindowRoster.ShowWindow;
-          if (WindowRoster.ShowWindow) WindowRoster.GetRosterList();
+          WindowRoster.Instance.ShowWindow = !WindowRoster.Instance.ShowWindow;
+          if (WindowRoster.Instance.ShowWindow) WindowRoster.Instance.GetRosterList();
         }
       }
       catch (Exception ex)
@@ -708,13 +712,19 @@ namespace ShipManifest
               WindowSettings.Title, GUILayout.MinHeight(20));
           }
 
-          if (WindowRoster.ShowWindow)
+          if (WindowRoster.Instance.ShowWindow)
           {
             step = "6 - Show Roster";
-            if (WindowRoster.ResetRosterSize)
-              WindowRoster.Position.height = SMSettings.UseUnityStyle ? 330 : 350;
-            WindowRoster.Position = GUILayout.Window(398547, WindowRoster.Position, WindowRoster.Display,
-              WindowRoster.Title, GUILayout.MinHeight(20));
+            if (WindowRoster.Instance.ResetRosterSize)
+            {
+              Rect p = WindowRoster.Instance.Position; // Really Ugly Hack...
+              p.height = SMSettings.UseUnityStyle ? 330 : 350;
+              WindowRoster.Instance.Position = p;
+            }
+            WindowRoster.Instance.Position = GUILayout.Window(398547
+                , WindowRoster.Instance.Position, (int windowId) => WindowRoster.Instance.Display(windowId)
+                , WindowRoster.Instance.Title, GUILayout.MinHeight(20)
+              );
           }
         }
         //if (HighLogic.LoadedScene == GameScenes.FLIGHT &&
@@ -777,10 +787,14 @@ namespace ShipManifest
       RepositionWindow(ref WindowDebugger.Position);
       RepositionWindow(ref WindowSettings.Position);
       RepositionWindow(ref WindowControl.Position);
-      RepositionWindow(ref WindowRoster.Position);
+      {
+        Rect p = WindowRoster.Instance.Position;  // Damn, another ugly hack. :(
+        RepositionWindow(ref p);
+        WindowRoster.Instance.Position = p;
+      }
     }
 
-    internal static void RepositionWindow(ref Rect windowPosition)
+    public static void RepositionWindow(ref Rect windowPosition)
     {
       // This method uses Gui point system.
       if (windowPosition.x < 0) windowPosition.x = 0;

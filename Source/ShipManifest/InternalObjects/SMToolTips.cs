@@ -25,7 +25,7 @@ using ShipManifest.Windows.Tabs.Settings;
 namespace ShipManifest.InternalObjects
 {
   // ReSharper disable once InconsistentNaming
-  internal static class SMToolTips
+  public static class SMToolTips
   {
     // Tooltip vars
     internal static Rect ControlRect;
@@ -57,7 +57,7 @@ namespace ShipManifest.InternalObjects
       GUI.BringWindowToFront(0);
     }
 
-    internal static string SetActiveToolTip(Rect control, string toolTip, ref bool toolTipActive, float xOffset)
+    public static string SetActiveToolTip(Rect control, string toolTip, ref bool toolTipActive, float xOffset)
     {
       // Note:  all values are screen point based.  (0,0 in lower left).  this removes confusion with the gui point of elements (0,0 in upper left).
       if (!toolTipActive && control.Contains(Event.current.mousePosition))
@@ -107,9 +107,9 @@ namespace ShipManifest.InternalObjects
         source = "WindowTransfer";
         return toolTip;
       }
-      if (!string.IsNullOrEmpty(WindowRoster.ToolTip))
+      if (!string.IsNullOrEmpty(WindowRoster.Instance.ToolTip))
       {
-        toolTip = WindowRoster.ToolTip;
+        toolTip = WindowRoster.Instance.ToolTip;
         source = "WindowRoster";
         return toolTip;
       }

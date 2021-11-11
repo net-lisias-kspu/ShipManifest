@@ -32,7 +32,7 @@ namespace ShipManifest.InternalObjects
   ///   as well.
   /// </summary>
   // ReSharper disable once InconsistentNaming
-  internal static class SMConditions
+  public static class SMConditions
   {
     #region Condition Methods
 
@@ -152,7 +152,7 @@ namespace ShipManifest.InternalObjects
       return results;
     }
 
-    internal static PartModule GetFreezerModule(Part selectedPartSource)
+    public static PartModule GetFreezerModule(Part selectedPartSource)
     {
       return !selectedPartSource.Modules.Contains("DeepFreezer") ? null : selectedPartSource.Modules["DeepFreezer"];
     }
@@ -354,7 +354,7 @@ namespace ShipManifest.InternalObjects
              SMAddon.SmVessel.SelectedResources.Contains(ResourceType.Crew.ToString());
     }
 
-    internal static bool CanKerbalBeReSpawned(ProtoCrewMember kerbal)
+    public static bool CanKerbalBeReSpawned(ProtoCrewMember kerbal)
     {
       return (kerbal.rosterStatus == ProtoCrewMember.RosterStatus.Dead &&
               kerbal.type != ProtoCrewMember.KerbalType.Unowned) ||
@@ -398,7 +398,7 @@ namespace ShipManifest.InternalObjects
 
     #region Roster Window methods
 
-    internal static bool CanKerbalBeAdded(ProtoCrewMember kerbal)
+    public static bool CanKerbalBeAdded(ProtoCrewMember kerbal)
     {
       return SMSettings.EnableCrewModify 
         && kerbal.rosterStatus == ProtoCrewMember.RosterStatus.Available 
@@ -406,27 +406,27 @@ namespace ShipManifest.InternalObjects
         && !ShipManifest.SMPart.IsCrewFull(SMAddon.SmVessel.SelectedPartsSource[0]);
     }
 
-    internal static bool FrozenKerbalNotThawable(ProtoCrewMember kerbal)
+    public static bool FrozenKerbalNotThawable(ProtoCrewMember kerbal)
     {
       return kerbal.rosterStatus == ProtoCrewMember.RosterStatus.Dead &&
              kerbal.type == ProtoCrewMember.KerbalType.Unowned &&
              DfWrapper.DeepFreezeApi.FrozenKerbals[kerbal.name].VesselId != FlightGlobals.ActiveVessel.id;
     }
 
-    internal static bool FrozenKerbalIsThawable(ProtoCrewMember kerbal)
+    public static bool FrozenKerbalIsThawable(ProtoCrewMember kerbal)
     {
       return kerbal.rosterStatus == ProtoCrewMember.RosterStatus.Dead &&
              kerbal.type == ProtoCrewMember.KerbalType.Unowned &&
              DfWrapper.DeepFreezeApi.FrozenKerbals[kerbal.name].VesselId == FlightGlobals.ActiveVessel.id;
     }
 
-    internal static bool CanKerbalBeFrozen(ProtoCrewMember kerbal)
+    public static bool CanKerbalBeFrozen(ProtoCrewMember kerbal)
     {
       return kerbal.rosterStatus == ProtoCrewMember.RosterStatus.Assigned &&
              FlightGlobals.ActiveVessel.GetVesselCrew().Contains(kerbal) && IsKerbalReadyToFreeze(kerbal);
     }
 
-    internal static bool IsKerbalReadyToFreeze(ProtoCrewMember kerbal)
+    public static bool IsKerbalReadyToFreeze(ProtoCrewMember kerbal)
     {
       //return kerbal.seat.part.Modules.Contains("DeepFreezer") && !SMPart.IsCrewFull(kerbal.seat.part);
       PartModule deepFreezer = GetFreezerModule(kerbal.seat.part);
@@ -434,34 +434,34 @@ namespace ShipManifest.InternalObjects
       return false;
     }
 
-    internal static bool CanKerbalBeRemoved(ProtoCrewMember kerbal)
+    public static bool CanKerbalBeRemoved(ProtoCrewMember kerbal)
     {
       return SMSettings.EnableCrewModify 
         && kerbal.rosterStatus == ProtoCrewMember.RosterStatus.Assigned 
         && FlightGlobals.ActiveVessel.GetVesselCrew().Contains(kerbal);
     }
 
-    internal static bool KerbalCannotBeRemovedRealism(ProtoCrewMember kerbal)
+    public static bool KerbalCannotBeRemovedRealism(ProtoCrewMember kerbal)
     {
       return !SMSettings.EnableCrewModify
         && kerbal.rosterStatus == ProtoCrewMember.RosterStatus.Assigned
         && FlightGlobals.ActiveVessel.GetVesselCrew().Contains(kerbal);
     }
 
-    internal static bool KerbalCannotBeAddedNoSource(ProtoCrewMember kerbal)
+    public static bool KerbalCannotBeAddedNoSource(ProtoCrewMember kerbal)
     {
       return SMSettings.EnableCrewModify 
         && kerbal.rosterStatus == ProtoCrewMember.RosterStatus.Available 
         && SMAddon.SmVessel.SelectedPartsSource.Count == 0;
     }
 
-    internal static bool KerbalCannotBeAddedRealism(ProtoCrewMember kerbal)
+    public static bool KerbalCannotBeAddedRealism(ProtoCrewMember kerbal)
     {
       return !SMSettings.EnableCrewModify 
         && kerbal.rosterStatus == ProtoCrewMember.RosterStatus.Available;
     }
 
-    internal static bool KerbalIsBroken(ProtoCrewMember kerbal)
+    public static bool KerbalIsBroken(ProtoCrewMember kerbal)
     {
       // TODO: Check whether any other conditions can exist which are invalid
       return (kerbal.type == ProtoCrewMember.KerbalType.Applicant && kerbal.rosterStatus != ProtoCrewMember.RosterStatus.Available);

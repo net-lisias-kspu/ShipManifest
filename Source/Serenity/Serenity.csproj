@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Serenity</RootNamespace>
+    <AssemblyName>ShipManifest.Serenity</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <BaseIntermediateOutputPath>..\..\obj\Serenity</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\LIB\managed\1.7.1\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\LIB\managed\1.7.1\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="KSPe">
+      <HintPath>..\..\..\..\..\..\LIB\plugins\KSPe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="KSPe.UI">
+      <HintPath>..\..\..\..\..\..\LIB\plugins\KSPe.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\Classic\Modules\ModKerbal.cs">
+      <Link>Modules\ModKerbal.cs</Link>
+    </Compile>
+    <Compile Include="Modules\ModKerbal.Serenity.cs" />
+    <Compile Include="..\Classic\Windows\WindowRoster.cs">
+      <Link>Windows\WindowRoster.cs</Link>
+    </Compile>
+    <Compile Include="Windows\WindowRoster.Serenity.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\" />
+    <Folder Include="Windows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShipManifest\ShipManifest.csproj">
+      <Project>{C6304C33-CCE5-496C-B11B-49F454CC2F79}</Project>
+      <Name>ShipManifest</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -400,20 +400,20 @@ namespace ShipManifest.Windows
         }
       }
 
-      GUIStyle rosterStyle = WindowRoster.ShowWindow ? SMStyle.ButtonToggledStyle : SMStyle.ButtonStyle;
+      GUIStyle rosterStyle = WindowRoster.Instance.ShowWindow ? SMStyle.ButtonToggledStyle : SMStyle.ButtonStyle;
       if (GUILayout.Button(SmUtils.SmTags["#smloc_manifest_013"], rosterStyle, GUILayout.Height(20))) // "Roster"
       {
         try
         {
-          WindowRoster.ShowWindow = !WindowRoster.ShowWindow;
-          if (WindowRoster.ShowWindow)
+          WindowRoster.Instance.ShowWindow = !WindowRoster.Instance.ShowWindow;
+          if (WindowRoster.Instance.ShowWindow)
           {
-            WindowRoster.GetRosterList();
+            WindowRoster.Instance.GetRosterList();
           }
           else
           {
-            WindowRoster.SelectedKerbal = null;
-            WindowRoster.ToolTip = "";
+            WindowRoster.Instance.SelectedKerbal = null;
+            WindowRoster.Instance.ToolTip = "";
           }
         }
         catch (Exception ex)

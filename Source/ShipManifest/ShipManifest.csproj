@@ -40,18 +40,23 @@
     <Reference Include="System" />
     <Reference Include="KSPe.UI">
       <HintPath>..\..\..\..\..\..\LIB\plugins\KSPe.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="KSPe">
       <HintPath>..\..\..\..\..\..\LIB\plugins\KSPe.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="CLSInterfaces">
       <HintPath>..\..\..\..\..\..\LIB\plugins\CLSInterfaces.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\..\LIB\managed\1.7.1\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\LIB\managed\1.3.1\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\LIB\managed\1.7.1\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\LIB\managed\1.3.1\UnityEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +90,7 @@
     <Compile Include="Modules\ModHatch.cs" />
     <Compile Include="Windows\Tabs\Control\TabHatch.cs" />
     <Compile Include="SMStyle.cs" />
-    <Compile Include="Modules\ModKerbal.cs" />
     <Compile Include="Windows\Tabs\Control\TabLight.cs" />
-    <Compile Include="Windows\WindowRoster.cs" />
     <Compile Include="SMSettings.cs" />
     <Compile Include="Windows\WindowSettings.cs" />
     <Compile Include="SMAddon.cs" />
@@ -110,6 +113,10 @@
     <Compile Include="Log.cs" />
     <Compile Include="Assets.cs" />
     <Compile Include="APIClients\ToolbarSupport.cs" />
+    <Compile Include="Windows\WindowRoster.cs" />
+    <Compile Include="Modules\ModKerbal.cs" />
+    <Compile Include="MSG\MissingDLLAlertBox.cs" />
+    <Compile Include="MSG\CommonBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Version.tt">

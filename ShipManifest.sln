@@ -8,6 +8,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMInterface", "Source\SMInterface\SMInterface.csproj", "{FE8E6894-3A15-472C-B229-E0BE7A827CA1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KSP", "KSP", "{2BE84760-CD43-43AD-97CA-EE06BAEDA9FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classic", "Source\Classic\Classic.csproj", "{3104B6A2-FA66-44A0-8C72-8D97E74B041C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serenity", "Source\Serenity\Serenity.csproj", "{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +38,22 @@ Global
 		{FE8E6894-3A15-472C-B229-E0BE7A827CA1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FE8E6894-3A15-472C-B229-E0BE7A827CA1}.Release|x86.ActiveCfg = Release|Any CPU
 		{FE8E6894-3A15-472C-B229-E0BE7A827CA1}.Release|x86.Build.0 = Release|Any CPU
+		{3104B6A2-FA66-44A0-8C72-8D97E74B041C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3104B6A2-FA66-44A0-8C72-8D97E74B041C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3104B6A2-FA66-44A0-8C72-8D97E74B041C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3104B6A2-FA66-44A0-8C72-8D97E74B041C}.Debug|x86.Build.0 = Debug|Any CPU
+		{3104B6A2-FA66-44A0-8C72-8D97E74B041C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3104B6A2-FA66-44A0-8C72-8D97E74B041C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3104B6A2-FA66-44A0-8C72-8D97E74B041C}.Release|x86.ActiveCfg = Release|Any CPU
+		{3104B6A2-FA66-44A0-8C72-8D97E74B041C}.Release|x86.Build.0 = Release|Any CPU
+		{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}.Debug|x86.Build.0 = Debug|Any CPU
+		{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}.Release|x86.ActiveCfg = Release|Any CPU
+		{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,5 +74,9 @@ Global
 		$3.TabWidth = 2
 		$3.TabsToSpaces = True
 		$3.IndentWidth = 2
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3104B6A2-FA66-44A0-8C72-8D97E74B041C} = {2BE84760-CD43-43AD-97CA-EE06BAEDA9FC}
+		{95C970EE-BFAA-48A2-8D5D-95A77BDC7C0E} = {2BE84760-CD43-43AD-97CA-EE06BAEDA9FC}
 	EndGlobalSection
 EndGlobal

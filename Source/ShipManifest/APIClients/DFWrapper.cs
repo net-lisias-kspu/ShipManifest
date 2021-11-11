@@ -228,7 +228,7 @@ namespace ShipManifest.APIClients
       /// <returns>
       /// Dictionary&lt;string, KerbalInfo&gt; of Frozen Kerbals
       /// </returns>
-      internal Dictionary<string, KerbalInfo> FrozenKerbals
+      public Dictionary<string, KerbalInfo> FrozenKerbals
       {
         get
         {
@@ -292,7 +292,7 @@ namespace ShipManifest.APIClients
     /// </summary>
     public class DeepFreezer
     {
-      internal DeepFreezer(object a)
+      public DeepFreezer(object a)
       {
         _actualDeepFreezer = a;
         //Fields available from Freezer part

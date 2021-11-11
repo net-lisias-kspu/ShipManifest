@@ -13,7 +13,6 @@
 	warranty of	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 */
-using System;
 using UnityEngine;
 
 namespace ShipManifest
@@ -24,6 +23,25 @@ namespace ShipManifest
     private void Start()
     {
       Log.force("Version {0}", Version.Text);
+
+      try     // Check for critical artefacts first!
+      {
+        using (KSPe.Util.SystemTools.Assembly.Loader<Startup> a = new KSPe.Util.SystemTools.Assembly.Loader<Startup>())
+        {
+          if (KSPe.Util.KSP.Version.Current < KSPe.Util.KSP.Version.GetVersion(1, 7, 1))
+            a.LoadAndStartup("ShipManifest.Classic");
+          else
+            a.LoadAndStartup("ShipManifest.Serenity");
+        }
+
+        // Check if the needed Classes are available...
+        KSPe.Util.SystemTools.TypeFinder.FindByQualifiedName("ShipManifest.Windows.WindowRosterRealization");
+      }
+      catch (System.Exception e)
+      {
+        Log.error(e.ToString());
+        MSG.MissingDLLAlertBox.Show(e.Message);
+      }
 
       try
       {

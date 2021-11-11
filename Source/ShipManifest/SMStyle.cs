@@ -21,7 +21,7 @@ using GUILayout = KSPe.UI.GUILayout;
 namespace ShipManifest
 {
   // ReSharper disable once InconsistentNaming
-  internal static class SMStyle
+  public static class SMStyle
   {
     internal static GUIStyle WindowStyle;
     internal static GUIStyle IconStyle;
@@ -34,19 +34,19 @@ namespace ShipManifest
     internal static GUIStyle ButtonStyleLeft;
     internal static GUIStyle ButtonToggledStyleLeft;
     internal static GUIStyle ToggleStyleHeader;
-    internal static GUIStyle ErrorLabelRedStyle;
-    internal static GUIStyle LabelStyle;
+    public static GUIStyle ErrorLabelRedStyle;
+    public static GUIStyle LabelStyle;
     internal static GUIStyle LabelTabHeader;
-    internal static GUIStyle LabelStyleBold;
-    internal static GUIStyle LabelStyleRed;
-    internal static GUIStyle LabelStyleCyan;
-    internal static GUIStyle LabelStyleYellow;
-    internal static GUIStyle LabelStyleGreen;
+    public static GUIStyle LabelStyleBold;
+    public static GUIStyle LabelStyleRed;
+    public static GUIStyle LabelStyleCyan;
+    public static GUIStyle LabelStyleYellow;
+    public static GUIStyle LabelStyleGreen;
     internal static GUIStyle LabelStyleNoWrap;
-    internal static GUIStyle LabelStyleNoPad;
+    public static GUIStyle LabelStyleNoPad;
     internal static GUIStyle LabelStyleHardRule;
     internal static GUIStyle ToolTipStyle;
-    internal static GUIStyle ScrollStyle;
+    public static GUIStyle ScrollStyle;
 
     internal static void SetupGuiStyles()
     {

@@ -25,12 +25,12 @@ using UnityEngine;
 
 namespace ShipManifest
 {
-  internal static class SmUtils
+  public static class SmUtils
   {
     internal static string AppPath = KSPUtil.ApplicationRootPath.Replace("\\", "/");
     internal static string PlugInPath = $"{AppPath}GameData/ShipManifest/Plugins/PluginData/ShipManifest/";
     internal static Vector2 DebugScrollPosition = Vector2.zero;
-    internal static Dictionary<string, string> SmTags;
+    public static Dictionary<string, string> SmTags;
 
     // decimal string handlers for tex box
     internal static bool StrHasDecimal;
@@ -107,7 +107,7 @@ namespace ShipManifest
       return displayAmount;
     }
 
-    internal static List<Part> GetFreezerParts()
+    public static List<Part> GetFreezerParts()
     {
       return (from p in SMAddon.SmVessel.Vessel.parts where p.Modules.Contains("DeepFreezer") select p).ToList();
     }

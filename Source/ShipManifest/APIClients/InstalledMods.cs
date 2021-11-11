@@ -26,15 +26,15 @@ using GUILayout = KSPe.UI.GUILayout;
 
 namespace ShipManifest.APIClients
 {
-  internal class InstalledMods
+  public class InstalledMods
   {
     private const float GuiWidth = 190;
     // Properties
     private static readonly Assembly[] Assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
-    internal static bool IsDfApiReady => DfWrapper.ApiReady;
+    public static bool IsDfApiReady => DfWrapper.ApiReady;
 
-    internal static bool IsDfInstalled => Finder.ExistsByName("DeepFreeze");
+    public static bool IsDfInstalled => Finder.ExistsByName("DeepFreeze");
 
     internal static bool IsRtInstalled => Finder.ExistsByName("RemoteTech");
 

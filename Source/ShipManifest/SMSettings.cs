@@ -31,7 +31,7 @@ using Data = KSPe.IO.Data<ShipManifest.Startup>;
 namespace ShipManifest
 {
   // ReSharper disable once InconsistentNaming
-  internal static class SMSettings
+  public static class SMSettings
   {
     #region Properties
 
@@ -51,9 +51,9 @@ namespace ShipManifest
     internal static bool RealXfers = true;
     internal static bool RealControl = true;
     internal static bool EnableCrew = true;
-    internal static bool EnableCrewModify = true;
-    internal static bool EnableKerbalRename = true;
-    internal static bool EnableChangeProfession = true;
+    public static bool EnableCrewModify = true;
+    public static bool EnableKerbalRename = true;
+    public static bool EnableChangeProfession = true;
     internal static bool EnableStockCrewXfer = true;
     internal static bool OverrideStockCrewXfer = true;
     internal static bool EnableClsAllowTransfer = true;
@@ -267,7 +267,7 @@ namespace ShipManifest
         WindowDebugger.Position = GetRectangle(windowsNode, "DebuggerPosition", WindowDebugger.Position);
         WindowSettings.Position = GetRectangle(windowsNode, "SettingsPosition", WindowSettings.Position);
         WindowControl.Position = GetRectangle(windowsNode, "ControlPosition", WindowControl.Position);
-        WindowRoster.Position = GetRectangle(windowsNode, "RosterPosition", WindowRoster.Position);
+        WindowRoster.Instance.Position = GetRectangle(windowsNode, "RosterPosition", WindowRoster.Instance.Position);
 
         // now the settings
         // Realism Settings
@@ -384,9 +384,9 @@ namespace ShipManifest
         TabConfig.ShowToolTips = toolTipsNode.HasValue("ConfigToolTips")
           ? bool.Parse(toolTipsNode.GetValue("ConfigToolTips"))
           : TabConfig.ShowToolTips;
-        WindowRoster.ShowToolTips = toolTipsNode.HasValue("RosterToolTips")
+        WindowRoster.Instance.ShowToolTips = toolTipsNode.HasValue("RosterToolTips")
           ? bool.Parse(toolTipsNode.GetValue("RosterToolTips"))
-          : WindowRoster.ShowToolTips;
+          : WindowRoster.Instance.ShowToolTips;
         WindowControl.ShowToolTips = toolTipsNode.HasValue("ControlToolTips")
           ? bool.Parse(toolTipsNode.GetValue("ControlToolTips"))
           : WindowControl.ShowToolTips;
@@ -540,7 +540,7 @@ namespace ShipManifest
         WriteRectangle(windowsNode, "DebuggerPosition", WindowDebugger.Position);
         WriteRectangle(windowsNode, "SettingsPosition", WindowSettings.Position);
         WriteRectangle(windowsNode, "ControlPosition", WindowControl.Position);
-        WriteRectangle(windowsNode, "RosterPosition", WindowRoster.Position);
+        WriteRectangle(windowsNode, "RosterPosition", WindowRoster.Instance.Position);
 
         //Write settings...
         // Realism Settings
@@ -584,7 +584,7 @@ namespace ShipManifest
         WriteValue(toolTipsNode, "ToolTipsToolTips", TabToolTips.ShowToolTips);
         WriteValue(toolTipsNode, "SoundsToolTips", TabSounds.ShowToolTips);
         WriteValue(toolTipsNode, "ConfigToolTips", TabConfig.ShowToolTips);
-        WriteValue(toolTipsNode, "RosterToolTips", WindowRoster.ShowToolTips);
+        WriteValue(toolTipsNode, "RosterToolTips", WindowRoster.Instance.ShowToolTips);
         WriteValue(toolTipsNode, "ControlToolTips", WindowControl.ShowToolTips);
         WriteValue(toolTipsNode, "HatchToolTips", TabHatch.ShowToolTips);
         WriteValue(toolTipsNode, "PanelToolTips", TabSolarPanel.ShowToolTips);
@@ -925,7 +925,7 @@ namespace ShipManifest
       PrevManifestToolTips = WindowManifest.ShowToolTips;
       PrevTransferToolTips = WindowTransfer.ShowToolTips;
       PrevSettingsToolTips = WindowSettings.ShowToolTips;
-      PrevRosterToolTips = WindowRoster.ShowToolTips;
+      PrevRosterToolTips = WindowRoster.Instance.ShowToolTips;
       PrevControlToolTips = WindowControl.ShowToolTips;
       PrevHatchToolTips = TabHatch.ShowToolTips;
       PrevPanelToolTips = TabSolarPanel.ShowToolTips;
@@ -988,7 +988,7 @@ namespace ShipManifest
       WindowManifest.ShowToolTips = PrevManifestToolTips;
       WindowTransfer.ShowToolTips = PrevTransferToolTips;
       WindowSettings.ShowToolTips = PrevSettingsToolTips;
-      WindowRoster.ShowToolTips = PrevRosterToolTips;
+      WindowRoster.Instance.ShowToolTips = PrevRosterToolTips;
       WindowControl.ShowToolTips = PrevControlToolTips;
       TabHatch.ShowToolTips = PrevHatchToolTips;
       TabSolarPanel.ShowToolTips = PrevPanelToolTips;

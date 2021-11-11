@@ -26,7 +26,7 @@ using ShipManifest.Windows;
 namespace ShipManifest
 {
   // ReSharper disable once InconsistentNaming
-  internal class SMVessel
+  public class SMVessel
   {
     #region Static Singleton stuff
 
@@ -63,7 +63,7 @@ namespace ShipManifest
 
     #region Instance Properties
 
-    internal Vessel Vessel
+    public Vessel Vessel
     {
       get { return _controllers.Single(p => p.Value == this).Key.Target; }
     }
@@ -115,7 +115,7 @@ namespace ShipManifest
     internal List<ProtoCrewMember> TargetMembersSelected = new List<ProtoCrewMember>();
 
     internal List<Part> SelectedResourcesParts = new List<Part>();
-    internal List<Part> SelectedPartsSource = new List<Part>();
+    public List<Part> SelectedPartsSource = new List<Part>();
     internal List<Part> SelectedPartsTarget = new List<Part>();
 
     // Used for part to part Science transfers.
@@ -242,7 +242,7 @@ namespace ShipManifest
       GetLights();
       GetSolarPanels();
       GetLabs();
-      WindowRoster.GetRosterList();
+      WindowRoster.Instance.GetRosterList();
       //Utilities.LogMessage("Exiting:  SMVessel.RefreshLists", Utilities.LogType.Info, SMSettings.VerboseLogging);
       SMConditions.ListsUpdating = false;
     }
@@ -822,7 +822,7 @@ namespace ShipManifest
       children.Dispose();
     }
 
-    internal Part FindPartByKerbal(ProtoCrewMember pKerbal)
+    public Part FindPartByKerbal(ProtoCrewMember pKerbal)
     {
       Part kPart = FlightGlobals.ActiveVessel.Parts.Find(x => x.protoModuleCrew.Find(y => y == pKerbal) != null);
       return kPart;

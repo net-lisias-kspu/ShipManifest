@@ -1,4 +1,4 @@
-/*
+﻿/*
 	This file is part of Ship Manifest /L Unleashed
 		© 2021 Lisias T : http://lisias.net <support@lisias.net>
 		© 2020 micha (mwerle)
@@ -15,82 +15,19 @@
 */
 namespace ShipManifest.Modules
 {
-  public class ModKerbal
-  {
-    public bool Badass;
-    public bool Veteran;
-    public float Courage;
-    public ProtoCrewMember.Gender Gender;
-    public ProtoCrewMember.KerbalSuit Suit;
-    public string Name;
-    public float Stupidity;
-    public string Trait;
-
-    public ModKerbal(ProtoCrewMember kerbal, bool isNew)
+    public interface ModKerbal
     {
-      Kerbal = kerbal;
-      Name = kerbal.name;
-      Stupidity = kerbal.stupidity;
-      Courage = kerbal.courage;
-      Badass = kerbal.isBadass;
-      Veteran = kerbal.veteran;
-      Trait = kerbal.trait;
-      Gender = kerbal.gender;
-      Suit = kerbal.suit;
-      IsNew = isNew;
+      string Name    { get; set; }
+      bool Badass    { get; set; }
+      bool Veteran   { get; set; }
+      float Courage  { get; set; }
+      float Stupidity { get; set; }
+      string Trait   { get; set; }
+
+      bool IsNew { get; set; }
+      ProtoCrewMember.Gender Gender { get; set; }
+      ProtoCrewMember Kerbal { get; set; }
+
+      string SubmitChanges();
     }
-
-    public ProtoCrewMember Kerbal { get; set; }
-    public bool IsNew { get; set; }
-
-    public string SubmitChanges()
-    {
-      if (NameExists())
-      {
-        return SmUtils.SmTags["#smloc_module_002"]; // "That name is in use!";
-      }
-
-      SyncKerbal();
-
-      if (IsNew)
-      {
-        // Add to roster.
-        Kerbal.rosterStatus = ProtoCrewMember.RosterStatus.Available;
-        HighLogic.CurrentGame.CrewRoster.AddCrewMember(Kerbal);
-      }
-      return string.Empty;
-    }
-
-    public static ModKerbal CreateKerbal(ProtoCrewMember.KerbalType kerbalType)
-    {
-      ProtoCrewMember kerbal = CrewGenerator.RandomCrewMemberPrototype(kerbalType);
-      return new ModKerbal(kerbal, true);
-    }
-
-    public void SyncKerbal()
-    {
-      if (SMSettings.EnableKerbalRename)
-      {
-        Kerbal.ChangeName(Name);
-        if (SMSettings.EnableChangeProfession)
-          KerbalRoster.SetExperienceTrait(Kerbal, Trait);
-      }
-      Kerbal.gender = Gender;
-      Kerbal.suit = Suit;
-      Kerbal.stupidity = Stupidity;
-      Kerbal.courage = Courage;
-      Kerbal.isBadass = Badass;
-      Kerbal.veteran = Veteran;
-    }
-
-    private bool NameExists()
-    {
-      if (IsNew || Kerbal.name != Name)
-      {
-        return HighLogic.CurrentGame.CrewRoster.Exists(Name);
-      }
-
-      return false;
-    }
-  }
 }

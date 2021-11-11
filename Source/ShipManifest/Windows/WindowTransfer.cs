@@ -785,7 +785,7 @@ namespace ShipManifest.Windows
         SmUtils.SmTags["#smloc_transfer_tt_010"]);
       if (GUILayout.Button(thawContent, SMStyle.ButtonStyle, GUILayout.Width(50), GUILayout.Height(20)))
       {
-        WindowRoster.ThawKerbal(frznCrew.CrewName);
+        WindowRoster.Instance.ThawKerbal(frznCrew.CrewName);
         ToolTip = "";
       }
       rect = GUILayoutUtility.GetLastRect();

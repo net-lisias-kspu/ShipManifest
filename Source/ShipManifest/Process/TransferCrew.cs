@@ -493,7 +493,7 @@ namespace ShipManifest.Process
     /// <param name="pKerbal"></param>
     /// <param name="part"></param>
     /// <param name="seat"></param>
-    internal static void AddCrewMember(ProtoCrewMember pKerbal, Part part, InternalSeat seat = null)
+    public static void AddCrewMember(ProtoCrewMember pKerbal, Part part, InternalSeat seat = null)
     {
       if (seat != null)
         part.AddCrewmemberAt(pKerbal, part.internalModel.seats.IndexOf(seat));
@@ -501,7 +501,7 @@ namespace ShipManifest.Process
         part.AddCrewmember(pKerbal);
     }
 
-    internal static void RemoveCrewMember(ProtoCrewMember pKerbal, Part part)
+    public static void RemoveCrewMember(ProtoCrewMember pKerbal, Part part)
     {
       part.RemoveCrewmember(pKerbal);
     }

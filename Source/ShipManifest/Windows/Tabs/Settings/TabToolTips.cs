@@ -225,7 +225,7 @@ namespace ShipManifest.Windows.Tabs.Settings
       _toolTip = SmUtils.SmTags["#smloc_settings_tooltips_tt_011"];
       _guiLabel = new GUIContent(_label, _toolTip);
       GUILayout.Space(guiIndent);
-      WindowRoster.ShowToolTips = GUILayout.Toggle(WindowRoster.ShowToolTips, _guiLabel, GUILayout.Width(guiToggleWidth));
+      WindowRoster.Instance.ShowToolTips = GUILayout.Toggle(WindowRoster.Instance.ShowToolTips, _guiLabel, GUILayout.Width(guiToggleWidth));
       GUILayout.EndHorizontal();
       _rect = GUILayoutUtility.GetLastRect();
       if (Event.current.type == EventType.Repaint && _canShowToolTips)
