@@ -249,6 +249,7 @@ namespace ShipManifest
       {
         SmUtils.LogMessage($"Error in:  SMAddon.OnDestroy.  {ex}", SmUtils.LogType.Error, true);
       }
+      Instance = null;
     }
 
     internal void CreateAppIcons()
@@ -291,6 +292,7 @@ namespace ShipManifest
         if (_smButtonStock == null && _smSettingsStock == null && _smRosterStock == null)
         {
           // Remove the stock toolbar button launcher handler
+          GameEvents.onGUIApplicationLauncherDestroyed.Remove(OnGuiAppLauncherDestroyed);
           GameEvents.onGUIApplicationLauncherReady.Remove(OnGuiAppLauncherReady);
         }
       }
