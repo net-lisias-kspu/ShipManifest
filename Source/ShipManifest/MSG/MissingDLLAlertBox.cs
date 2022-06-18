@@ -1,6 +1,6 @@
 ﻿/*
 	This file is part of Ship Manifest /L Unleashed
-		© 2021 Lisias T : http://lisias.net <support@lisias.net>
+		© 2021-2022 LisiasT : http://lisias.net <support@lisias.net>
 
 	Ship Manifest /L Unleashed is licensed as follows:
 		* CC BY-NC-SA 4.0i : https://creativecommons.org/licenses/by-nc-sa/4.0/
