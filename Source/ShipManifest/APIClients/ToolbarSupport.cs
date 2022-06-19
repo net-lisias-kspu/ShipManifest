@@ -54,7 +54,7 @@ namespace ShipManifest.APIClients
     {
       if (null == this.smButton)
       { // Setup SM Window button
-        this.smButton = Toolbar.Button.Create(this
+        this.smButton = Toolbar.Button.Create(this, "smButton"
             , ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.TRACKSTATION
             , Assets.Textures.IconOff_128, Assets.Textures.IconOff_24
             , Version.FriendlyName
@@ -71,7 +71,7 @@ namespace ShipManifest.APIClients
 
       if (null == this.smSettings)
       { // Setup Settings Button
-        this.smSettings = Toolbar.Button.Create(this
+        this.smSettings = Toolbar.Button.Create(this, "smSettings"
             , ApplicationLauncher.AppScenes.SPACECENTER
             , Assets.Textures.IconS_Off_128, Assets.Textures.IconS_Off_24
             , "Ship Manifest Settings Window"
@@ -88,7 +88,7 @@ namespace ShipManifest.APIClients
 
       if (this.smRoster == null)
       { // Setup Roster Button
-        this.smRoster = Toolbar.Button.Create(this
+        this.smRoster = Toolbar.Button.Create(this, "smRoster"
             , ApplicationLauncher.AppScenes.SPH | ApplicationLauncher.AppScenes.VAB
             , Assets.Textures.IconR_Off_128, Assets.Textures.IconR_Off_24
             , "Ship Manifest Roster Window"
@@ -112,16 +112,19 @@ namespace ShipManifest.APIClients
 
     private void OnSmButtonClicked()
     {
+      Log.dbg("ToolbarSupport.OnSmButtonClicked");
       this.smButtonClickHandler?.Invoke();
     }
 
     private void OnSmSettingsClicked()
     {
+      Log.dbg("ToolbarSupport.OnSmSettingsClicked");
       this.smSettingsClickHandler?.Invoke();
     }
 
     private void OnSmRosterClicked()
     {
+      Log.dbg("ToolbarSupport.OnSmRosterClicked");
       this.smRosterClickHandler?.Invoke();
     }
 
