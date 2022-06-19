@@ -53,7 +53,7 @@ namespace ShipManifest.Windows
       {
         ToolTip = "";
         if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
-          SMAddon.OnSmSettingsClicked();
+          SMAddon.Instance.OnSmSettingsToggle();
         else
         {
           SMSettings.MemStoreTempSettings();
@@ -190,7 +190,7 @@ namespace ShipManifest.Windows
         }
 
         if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
-          SMAddon.OnSmSettingsClicked();
+          SMAddon.Instance.OnSmSettingsToggle();
         else
           ShowWindow = false;
       }
@@ -208,7 +208,7 @@ namespace ShipManifest.Windows
         SMSettings.MemRestoreTempSettings();
 
         if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
-          SMAddon.OnSmSettingsClicked();
+          SMAddon.Instance.OnSmSettingsToggle();
         else
           ShowWindow = false;
       }

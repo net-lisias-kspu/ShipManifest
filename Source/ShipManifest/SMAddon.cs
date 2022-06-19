@@ -60,11 +60,6 @@ namespace ShipManifest
     // This is still very entrenched.   Need to look at implications for conversion to instanced.
     internal static TransferPump.TypeXfer ActiveXferType = TransferPump.TypeXfer.SourceToTarget;
 
-    // Toolbar Integration.
-    private static Toolbar.Button _smButtonStock;
-    private static Toolbar.Button _smSettingsStock;
-    private static Toolbar.Button _smRosterStock;
-
     // Repeating error latch
     public static bool FrameErrTripped;
 
@@ -123,8 +118,6 @@ namespace ShipManifest
         if (SMSettings.AutoSave)
           InvokeRepeating("RunSave", SMSettings.SaveIntervalSec, SMSettings.SaveIntervalSec);
 
-        CreateAppIcons();
-
         // Cache Localization Strings
         SmUtils.CacheSmLocalization();
 
@@ -137,6 +130,9 @@ namespace ShipManifest
 
     internal void Start()
     {
+      Log.dbg("SMAddon.Start");
+      ToolbarController.Instance.Register(this, WindowRoster.Instance);
+      ToolbarController.Instance.ButtonsActive(!SMSettings.EnableBlizzyToolbar, SMSettings.EnableBlizzyToolbar);
       try
       {
         // Reset frame error latch if set
@@ -246,7 +242,7 @@ namespace ShipManifest
         CancelInvoke("RunSave");
 
         // Handle Toolbars
-        ToolbarController.Instance.Destroy();
+        ToolbarController.Instance.Unregister();
 
         //Reset Roster Window data
         WindowRoster.Instance.OnCreate = false;
@@ -258,12 +254,7 @@ namespace ShipManifest
       {
         Log.error(ex, "Error in:  SMAddon.OnDestroy");
       }
-    }
-
-    internal void CreateAppIcons()
-    {
-      GameEvents.onGUIApplicationLauncherReady.Add(OnGuiAppLauncherReady);
-      GameEvents.onGUIApplicationLauncherDestroyed.Add(OnGuiAppLauncherDestroyed);
+      Instance = null;
     }
 
     // ReSharper disable once InconsistentNaming
@@ -355,7 +346,7 @@ namespace ShipManifest
 
       // Since the changes to Startup options, ON destroy is not being called when a Scene change occurs.  Startup is being called when the proper scene is loaded.
       // Let's do some cleanup of the app Icons here as well. to be sure we have only the icons we want...
-      ToolbarController.Instance.Destroy();
+      ToolbarController.Instance.Unregister();
     }
 
     // SM UI toggle handlers
@@ -602,24 +593,10 @@ namespace ShipManifest
         Log.error(ex, "Error in:  SMAddon.OnGUIAppLauncherReady");
       }
     }
-
-    private void OnGuiAppLauncherDestroyed()
-    {
-      Log.dbg("ShipManifestAddon.OnGUIAppLauncherDestroyed");
-      try
-      {
-        ToolbarController.Instance.Destroy();
-      }
-      catch (Exception ex)
-      {
-        Log.error(ex, "Error in:  SMAddon.OnGUIAppLauncherDestroyed");
-      }
-    }
-
     //Toolbar button click handlers
-    internal static void OnSmButtonClicked()
+    internal void OnSmButtonToggle()
     {
-      Log.dbg("ShipManifestAddon.OnSMButtonToggle Enter");
+      Log.dbg("ShipManifestAddon.OnSmButtonToggle Enter");
       try
       {
         Log.dbg("ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
@@ -656,29 +633,11 @@ namespace ShipManifest
       Log.dbg("ShowWIndow:  " + WindowManifest.ShowWindow + ", ShowUi:  " + ShowUi);
     }
 
-    public static void OnSmRosterClicked()
+    internal void OnSmSettingsToggle()
     {
-      Log.dbg("SMAddon.OnSMRosterToggle");
+      Log.dbg("SMAddon.OnSmSettingsToggle. Val:  {0}", WindowSettings.ShowWindow);
       try
       {
-        if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
-        {
-          WindowRoster.Instance.ShowWindow = !WindowRoster.Instance.ShowWindow;
-          if (WindowRoster.Instance.ShowWindow) WindowRoster.Instance.GetRosterList();
-        }
-      }
-      catch (Exception ex)
-      {
-        Log.error(ex, "Error in:  SMAddon.OnSMRosterToggle");
-      }
-    }
-
-    internal static void OnSmSettingsClicked()
-    {
-      Log.dbg("SMAddon.OnSMRosterToggle. Val:  {0}", WindowSettings.ShowWindow);
-      try
-      {
-        if (HighLogic.LoadedScene != GameScenes.SPACECENTER) return;
         WindowSettings.ShowWindow = !WindowSettings.ShowWindow;
         SMSettings.MemStoreTempSettings();
       }
@@ -837,7 +796,7 @@ namespace ShipManifest
         {
           if (newVessel.isEVA && !SmVessel.Vessel.isEVA)
           {
-            if (WindowManifest.ShowWindow) OnSmButtonClicked();
+            if (WindowManifest.ShowWindow) this.OnSmButtonToggle();
 
             // kill selected resource and its associated highlighting.
             SmVessel.SelectedResources.Clear();

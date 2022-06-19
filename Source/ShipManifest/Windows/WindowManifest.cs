@@ -78,7 +78,7 @@ namespace ShipManifest.Windows
       Rect rect = new Rect(Position.width - 20, 4, 16, 16);
       if (GUI.Button(rect, label))
       {
-        SMAddon.OnSmButtonClicked();
+        SMAddon.Instance.OnSmButtonToggle();
         ToolTip = "";
         SMHighlighter.Update_Highlighter();
       }

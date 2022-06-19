@@ -36,6 +36,8 @@ namespace ShipManifest.Windows
       void GetRosterList();
       void ResetKerbalNames();
       void ThawKerbal(string crewName);
+
+      void OnSmRosterToggle();
     }
 
     internal static Interface instance = null;
