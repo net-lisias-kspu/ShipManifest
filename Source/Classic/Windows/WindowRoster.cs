@@ -99,7 +99,7 @@ namespace ShipManifest.Windows
         SelectedKerbal = null;
         ToolTip = "";
         if (HighLogic.LoadedScene == GameScenes.SPACECENTER)
-          SMAddon.OnSmRosterClicked();
+          this.OnSmRosterToggle();
         else
           ShowWindow = false;
       }
@@ -471,6 +471,20 @@ namespace ShipManifest.Windows
       catch (Exception ex)
       {
         Log.error(ex, "Error in GetRosterList()");
+      }
+    }
+
+    public void OnSmRosterToggle()
+    {
+      Log.dbg("WindowRoster.OnSmRosterToggle");
+      try
+      {
+        this.ShowWindow = !this.ShowWindow;
+        if (this.ShowWindow) this.GetRosterList();
+      }
+      catch (Exception ex)
+      {
+        Log.error(ex, "Error in:  WindowRoster.OnSMRosterToggle");
       }
     }
 
