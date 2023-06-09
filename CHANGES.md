@@ -1,5 +1,8 @@
 # ShipManifest /L Unleashed :: Changes
 
+* 2023-0608: 6.0.2.5 (LisiasT) for KSP >= 1.3.0
+	+ Updating KSPe support to 2.5
+	+ No other changes applied.
 * 2022-0627: 6.0.2.4 (LisiasT) for KSP >= 1.3.0
 	+ Updating the KSPe services.
 	+ Fixing some pretty lame mistakes I let pass trough last release.
