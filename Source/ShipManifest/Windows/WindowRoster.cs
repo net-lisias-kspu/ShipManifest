@@ -44,7 +44,7 @@ namespace ShipManifest.Windows
     internal static Interface Instance => instance ?? (instance = Create());
     internal static Interface Create()
     {
-      Type type = KSPe.Util.SystemTools.TypeFinder.FindByQualifiedName("ShipManifest.Windows.WindowRosterRealization");
+      Type type = KSPe.Util.SystemTools.Type.Find.ByQualifiedName("ShipManifest.Windows.WindowRosterRealization");
       return (Interface)Activator.CreateInstance(type);
     }
   }

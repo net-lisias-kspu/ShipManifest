@@ -28,5 +28,5 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyFileVersion(ShipManifest.Version.Number)]
 [assembly: KSPAssembly("ShipManifest.Serenity", ShipManifest.Version.major, ShipManifest.Version.minor)]
 
-[assembly: KSPAssemblyDependency("KSPe", 2, 4)]
-[assembly: KSPAssemblyDependency("KSPe.UI", 2, 4)]
+[assembly: KSPAssemblyDependency("KSPe", 2, 5)]
+[assembly: KSPAssemblyDependency("KSPe.UI", 2, 5)]

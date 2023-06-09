@@ -15,7 +15,7 @@
 */
 using System;
 using System.Reflection;
-using TypeFinder = KSPe.Util.SystemTools.TypeFinder;
+using KType = KSPe.Util.SystemTools.Type;
 namespace ShipManifest.APIClients
 {
   internal static class ClsClient
@@ -26,8 +26,8 @@ namespace ShipManifest.APIClients
     {
       try
       {
-        if(!TypeFinder.ExistsByQualifiedName("ConnectedLivingSpace.CLSAddon")) return;
-        Type clsType = TypeFinder.FindByQualifiedName("ConnectedLivingSpace.CLSAddon");
+        if(!KType.Exists.ByQualifiedName("ConnectedLivingSpace.CLSAddon")) return;
+        Type clsType = KType.Find.ByQualifiedName("ConnectedLivingSpace.CLSAddon");
         if (clsType != null) _cls = clsType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static);
       }
       catch (Exception ex)

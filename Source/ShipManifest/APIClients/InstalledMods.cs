@@ -20,7 +20,7 @@ using System.Reflection;
 
 using UnityEngine;
 
-using Finder = KSPe.Util.SystemTools.Assembly.Finder;
+using KAssembly = KSPe.Util.SystemTools.Assembly;
 using GUI = KSPe.UI.GUI;
 using GUILayout = KSPe.UI.GUILayout;
 
@@ -34,15 +34,15 @@ namespace ShipManifest.APIClients
 
     public static bool IsDfApiReady => DfWrapper.ApiReady;
 
-    public static bool IsDfInstalled => Finder.ExistsByName("DeepFreeze");
+    public static bool IsDfInstalled => KAssembly.Exists.ByName("DeepFreeze");
 
-    internal static bool IsRtInstalled => Finder.ExistsByName("RemoteTech");
+    internal static bool IsRtInstalled => KAssembly.Exists.ByName("RemoteTech");
 
-    internal static bool IsSmInstalled => Finder.ExistsByName("ShipManifest");
+    internal static bool IsSmInstalled => KAssembly.Exists.ByName("ShipManifest");
 
-    internal static bool IsKisInstalled => Finder.ExistsByName("KIS");
+    internal static bool IsKisInstalled => KAssembly.Exists.ByName("KIS");
 
-    internal static bool IsClsInstalled => Finder.ExistsByName("ConnectedLivingSpace");
+    internal static bool IsClsInstalled => KAssembly.Exists.ByName("ConnectedLivingSpace");
 
     // Methods
     internal static void DisplayAssemblyList()

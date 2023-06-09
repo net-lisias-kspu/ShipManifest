@@ -35,7 +35,7 @@ namespace ShipManifest
         }
 
         // Check if the needed Classes are available...
-        KSPe.Util.SystemTools.TypeFinder.FindByQualifiedName("ShipManifest.Windows.WindowRosterRealization");
+        KSPe.Util.SystemTools.Type.Find.ByQualifiedName("ShipManifest.Windows.WindowRosterRealization");
       }
       catch (System.Exception e)
       {
